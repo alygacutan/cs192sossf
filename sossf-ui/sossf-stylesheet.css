@@ -1,0 +1,192 @@
+body{
+	background-color: #F9F6F5;
+	margin-right: 10%;
+	margin-left: 10%;
+	font-family: 'Nunito Sans', sans-serif;
+}
+header{
+	position: fixed;
+	height: 6rem;
+	z-index: 500;
+	background-color: #FDF590;
+	padding: 10px;
+	object-fit: contain;
+	top: 0px; 
+	width: 78%;
+	max-width: 100%;
+	z-index: -1;
+}
+
+header .searchbar{
+	display: inline-block;
+	position: relative;
+	float: right;
+	margin-top: 3.1rem;
+	right:3rem;
+	width:17rem;
+	opacity: .7;
+	border-radius: 25px;
+}
+header button[type=submit]{
+	float: right;
+	padding: 6px 10px;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	height:2.3rem;
+	width: 2.5rem;
+	background-color: #f9fafc;
+}
+header input[type=text]{
+	float: right;
+	padding: 1rem;
+	width:12rem;
+	height: 0.3rem;
+	font-family: 'Nunito', sans-serif;
+	text-transform: uppercase;
+	font-size: 12px;
+	display: inline-block;
+	position: relative;
+	border: none;
+	background-color: #f9fafc;
+}
+
+.dropbtn {
+	background-color: none;
+ 	color: #000000;
+  	padding: 1px;
+ 	font-size: 16px;
+ 	border: none;
+ 	float: right;
+ 	position: relative;
+ 	display: inline-block;
+ 	top: -2.3rem; right:-17.5rem;
+ 	height: 2.3rem; width: 2.3rem;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 100px;
+  float: right;
+   	top: 0rem; right:-17.5rem;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 7px 7px;
+  text-decoration: none;
+  display: block;
+  	font-family: 'Nunito Sans', sans-serif;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.content{
+	position: relative;
+	background-color: #fff;
+	max-width: 100%;
+	padding: 25px;
+	top: 7rem;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  height: auto;
+  border: 3px solid #3BC8AC;
+  border-radius: 25px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#myBtn{
+	float: right;
+	color: #3BC8AC;	
+	font-size: 1rem;
+	font-family: 'Nunito Sans', sans-serif;
+	border: none;
+	height: 2rem;
+	width: auto;
+}
+table{
+	margin-top:2rem;
+	padding: 5px;
+	width: 100%;
+}
+td{
+	border-bottom: 1.5px solid #3BC8AC;
+	padding: 3px;
+}
+
+
+h1{
+	font-family: 'Roboto', sans-serif;
+	color: #EFB033;
+	font-size; 20px;
+	display: inline;
+	margin-top: 2rem;
+}
+a{
+	font-family: 'Nunito Sans', sans-serif;
+	text-decoration: none;
+}
+
+.link, .viewall{
+	font-family: 'Nunito Sans', sans-serif;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+.viewall{
+	position: relative;
+	display: inline-block;
+	float: left;
+	left: 62%;
+	margin-top: 3.9rem;
+	color: #38393a;
+}
+
+
