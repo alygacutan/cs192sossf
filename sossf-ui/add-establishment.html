@@ -1,0 +1,71 @@
+<div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form class="container" method="POST">
+
+          <?php include('../errors.php'); ?>
+          <div class="input-group">
+              <h2>ADD ESTABLISHMENT</h2>
+          </div>
+
+          <div class="input-group">
+              <label>Name:</label>
+              <input type="text" name="new_name" value="<?php echo $new_name ?>">
+              <small class="error"><?php echo $new_title_jap_error ?></small>
+          </div>
+
+          <div class="input-group">
+              <label>Location: </label>
+              <input type="text" placeholder="location" name="new_title_eng" value="<?php echo $new_title_eng ?>">
+              <small class="error"><?php echo $new_title_eng_error ?></small>
+          </div>
+
+          <div class="input-group">
+              <label>Contact Info:</label>
+              <input type="text" name="new_score" value="<?php echo $new_score ?>">
+              <small class="error"><?php echo $new_score_error ?></small>
+          </div>
+
+          <div class="input-group">
+              <label>Service Hours:</label>
+              <input type="text" name="new_rank_overall" value="<?php echo $new_rank_overall ?>">
+              <small class="error"><?php echo $new_rank_overall_error ?></small>
+          </div>
+
+          <div class="input-group">
+              <label>Services:</label>
+              <input type="text" name="new_rank_popularity" value="<?php echo $new_rank_popularity ?>">
+
+              <small class="error"><?php echo $new_rank_popularity_error ?></small>
+          </div>
+          <!-- under co. still testing how to fix this--->
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+          <!-- -->
+          <div class="checkboxes">
+              <label> Tag(s)/ Type(s):</label>
+
+              <?php
+                  $sql="SELECT genre_name FROM Genre";
+                  $result=mysqli_query($connection,$sql);
+                  if ($result->num_rows > 0) {
+                  // output data of each row
+                      while($row = $result->fetch_assoc()) {
+                          echo "<input type='checkbox' name='new_genre[]' value='".$row['genre_name']."'><a>".$row['genre_name']."</a><br>";
+                      }
+                  }
+              ?>
+              
+          </div>
+
+           <div class="input-group">
+              <input type="submit" name="button" value="Create" class="btn">
+          </div>
+
+           <div class="input-group">
+              <a href="HomeV2.php" style="color: white;">Cancel</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
