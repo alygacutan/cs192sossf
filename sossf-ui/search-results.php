@@ -1,3 +1,6 @@
+<?php
+  include_once ('server.php')
+?>
 
 
 <!DOCTYPE html>
@@ -29,13 +32,15 @@
   <body>
     
     <div class="content">
-    <h1>All Establishments</h1>
+    <h1>Search Results:</h1>
 
     <!-- ADD ESTABLISHMENT POPUP WINDOW -->
     <button id="myBtn"> ADD ESTABLISHMENT </button>
-    <?php include_once ('add-establishment.php') ?>
+    <?php include_once ('add-establishment.php') 
 
-    
+    /* - - - - - - - - - - SEARCHING FUNCTION - - - - - - - - - - */
+   
+   ?>
     </div>
   </body>
 
@@ -43,5 +48,10 @@
 
 </script>
 </html>
+
+<?php
+
+$connection->close();
+?>
 
 
