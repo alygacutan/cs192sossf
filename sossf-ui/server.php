@@ -1,16 +1,16 @@
-<?php 
+<?php
 	session_start();
 
 	// variable declaration
 	$username = "";
-	$email    = "";
-	$errors = array(); 
+	$email = "";
+	$errors = array();
 	$_SESSION['success'] = "";
 
 	// connect to database
 	$connection = mysqli_connect('localhost', 'root', '', 'sossf');
 
-	// User Login
+	// user login
 	if (isset($_POST['login_user'])) {
 		$username = mysqli_real_escape_string($connection, $_POST['username']);
 		$password = mysqli_real_escape_string($connection, $_POST['password']);
@@ -30,10 +30,10 @@
 			*/
 
 			//if (mysqli_num_rows($results) == 1) {
-			if ($username = 'admin' and $password = 'root') {
+			if ($username == 'admin' and $password == 'root') {
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
-				header('location: viewall-admin.php');
+				header('location: homepage.php');
 			} else {
 				array_push($errors, "Wrong username/password combination");
 			}
@@ -62,7 +62,7 @@
 		// register user if there are no errors in the form
 		if (count($errors) == 0) {
 			$password = md5($password_1);//encrypt the password before saving in the database
-			$query = "INSERT INTO users (username, email, password) 
+			$query = "INSERT INTO users (username, email, password)
 					  VALUES('$username', '$email', '$password')";
 			mysqli_query($connection, $query);
 
@@ -73,7 +73,7 @@
 
 	}
 
-	// ... 
+	// ...
 
 	// LOGIN USER
 	if (isset($_POST['login_user'])) {
