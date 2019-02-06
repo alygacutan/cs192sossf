@@ -1,6 +1,4 @@
-<?php
-  include_once ('server.php')
-?>
+<?php include_once ('server.php'); ?>
 
 <!DOCTYPE html>
 <html>
