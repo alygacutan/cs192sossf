@@ -29,7 +29,7 @@ header .searchbar{
 	opacity: .8;
 	border-top-left-radius: 10px;
 }
-header button[type=submit]{
+button[type=submit]{
 	float: right;
 	padding: 6px 10px;
 	font-size: 17px;
@@ -41,7 +41,6 @@ header button[type=submit]{
 	width: 2.5rem;
 	background-color: #f9fafc;
 	border-top-right-radius: 5px;
-
 }
 header input[type=text]{
 	float: right;
@@ -98,16 +97,38 @@ header input[type=text]{
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
-
+/* - - - main - - - */
 .content{
 	position: absolute;
 	background-color: #fff;
 	width: 75.6%;
 	max-width: 100%;
 	height: 100% !important;
-	padding: 25px;
+	padding: 30px 25px;
 	top: 7rem;
 }
+
+.searchbarhomepage{
+	position: relative;
+	top: 0rem;
+	width: 85%;
+	border-radius: 30px;
+	padding:10px;
+	border:3px solid #EFB033; 
+}
+
+.searchbarhomepage input, .searchbarhomepage select{
+	height: 2rem;
+	width: 15rem;
+	padding: 2px 2px 2px 5px;
+	display: inline;
+	font: 14px 'Montserrat',sans-serif;
+	border: none;
+	background: none;
+}
+ .searchbarhomepage button{
+ 	background-color: #fff;
+ }
 
 .modal {
   display: none; /* Hidden by default */
@@ -183,6 +204,11 @@ h1{
 	font-size; 20px;
 	display: inline;
 	margin-top: 2rem;
+}
+h2{
+	font-size: 18px;
+	font-family:'Montserrat', sans-serif;
+	color: #3BC8AC;
 }
 a{
 	font-family: 'Nunito Sans', sans-serif;
