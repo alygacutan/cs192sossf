@@ -17,7 +17,8 @@
 
 			<!-- ADD ESTABLISHMENT POPUP WINDOW -->
 			<button id="myBtn"> ADD ESTABLISHMENT </button>
-			<?php include_once 'add-establishment.php' ?>
+
+			<!-- <?php //include_once 'add-establishment.php' ?> -->
 
 			<table>
 				<tr><th>Name</th><th>Type/Tag(s)</th><th>Actions</th></tr>
@@ -43,7 +44,8 @@
 		</div>
 	</body>
 
-	<script type="text/javascript" src="add-establishment.js">
+	<script
+	type="text/javascript" src="add-establishment.js">
 	</script>
 
 	</html>
