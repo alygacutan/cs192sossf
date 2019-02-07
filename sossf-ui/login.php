@@ -1,21 +1,21 @@
-<?php include('server.php'); ?>
+<?php include('server.php'); 
+		include_once ('header.php');
+  		include_once ('extras.php');
+  		include('errors.php');?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
 	<title>School and Office Supplies and Services Finder</title>
-	<link rel="stylesheet" type="text/css" href="stylev2.css">
 </head>
 
-<body>
-	<h1>School and Office Supplies and Services Finder</h1>	
+<body><center>
+	<div class="signup">
 	<form class="container" method="post" action="login.php">
 
-		<?php include('errors.php'); ?>
-
 		<div class="input-group">
-			<h2>Log In</h2>
+			<h2>Log In / Sign-up</h2>
 		</div>
 
 		<div class="input-group">
@@ -30,7 +30,7 @@
 
 		<div class="input-group">
 			<button type="submit" class="btn" name="login_user" id="login">Login</button>
-			<script>
+			<script type="text/javascript">
 				var btn = document.getElementById('login');
 				btn.addEventListener('click', function() {
 					document.location.href = '<?php echo "user/homepage.php"; ?>';
@@ -38,10 +38,10 @@
 			</script>
 		</div>
 
-		<p>
-			Create an account! <a href="register.php" style="color: #f99a2c">Sign up</a>
-		</p>
 	</form>
+	</div>
+	<p><br><br><br>Create an account! <a href="register.php" style="color: #f99a2c">Sign up</a>
+	</p>
 
 </body>
 </html>
