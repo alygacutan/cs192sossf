@@ -10,7 +10,7 @@
 	<title>School and Office Supplies and Services Finder</title>
 </head>
 
-<body><center>
+<body><div class="content"><center>
 	<div class="signup">
 	<form class="container" method="post" action="login.php">
 
@@ -37,11 +37,10 @@
 				});
 			</script>
 		</div>
-
 	</form>
 	</div>
 	<br><br><p>Create an account! <a href="register.php" style="color: #f99a2c">Sign up</a></p>
 	</p>
-
+</div>
 </body>
 </html>
