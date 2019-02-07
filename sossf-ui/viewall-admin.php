@@ -1,43 +1,51 @@
 <?php
-  include_once ('server.php');
-  include_once ('header.php');
-  include_once ('extras.php');
-  include_once ('add-establishment.php') 
+	include_once ('server.php');
+	include_once ('header.php');
+	include_once ('extras.php');
+	include_once ('add-establishment.php');
 ?>
 
 <!DOCTYPE html>
 <html>
-  <head>
-  
-  </head>
-  <body>
-    
-    <div class="content" style="height: 100%">
-    <h1>All Establishments</h1>
+	
+	<head>
+	</head>
 
-    <!-- ADD ESTABLISHMENT POPUP WINDOW -->
-    <button id="myBtn"> ADD ESTABLISHMENT </button>
-    <?php include_once 'add-establishment.php' ?>
+	<body>
+		<div class="content" style="height: 100%">
+			<h1>All Establishments</h1>
 
-    <table>
-    <tr><th>Name</th><th>Type/Tag(s)</th><th>Actions</th></tr>
-    <!-- 
-      INSERT PHP STATEMENTS HERE
-    -->
-    <tr><td><a href="">Blessings</a></td><td>Print, Internet, Bind, Photocopy</td><td><a href="">Edit</a>,<a href="">Delete</a></td></tr>
-    <tr><td><a href="">Blessings</a></td><td>Print, Internet, Bind, Photocopy</td><td><a href="">Edit</a>,<a href="">Delete</a></td></tr>
+			<!-- ADD ESTABLISHMENT POPUP WINDOW -->
+			<button id="myBtn"> ADD ESTABLISHMENT </button>
+			<?php include_once 'add-establishment.php' ?>
 
-    </table>
-    </div>
-  </body>
+			<table>
+				<tr><th>Name</th><th>Type/Tag(s)</th><th>Actions</th></tr>
 
-<script type="text/javascript" src="add-establishment.js">
+				<?php
 
-</script>
-</html>
+				$sql_view_all = "SELECT name, tags FROM Establishment";
+				$result_view_all = $connection->query($sql_view_all);
 
-<?php
+				if ($result_view_all->num_rows > 0) {
+						while($row = $result_view_all->fetch_assoc()) {
+								echo "<tr><td>".$row["name"]."</td><td>".$row["tags"]."</td><td>Edit, Delete</td></tr>";
+						}
+				} else {
+						echo "0 results";
+				}
 
-$connection->close();
-?>
+				?>
 
+				<tr><td><a href="">Blessings</a></td><td>Print, Internet, Bind, Photocopy</td><td><a href="">Edit</a>,<a href="">Delete</a></td></tr>
+				<tr><td><a href="">Blessings</a></td><td>Print, Internet, Bind, Photocopy</td><td><a href="">Edit</a>,<a href="">Delete</a></td></tr>
+			</table>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="add-establishment.js">
+	</script>
+
+	</html>
+
+	<?php $connection->close(); ?>
