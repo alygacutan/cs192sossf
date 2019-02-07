@@ -1,3 +1,4 @@
+
 body{
 	background-color: #FCFCFC;
 	margin-right: 10%;
@@ -11,7 +12,7 @@ header{
 	position: absolute;
 	height: 5rem;
 	z-index: 1;
-	background-color: #FDF590;
+	background-color: #ffe16b;
 	padding: 10px;
 	object-fit: contain;
 	top: 0px; 
@@ -37,7 +38,7 @@ button[type=submit]{
 	cursor: pointer;
 	display: inline-block;
 	position: relative;
-	height:2.3rem;
+	height:2rem;
 	width: 2.5rem;
 	background-color: #f9fafc;
 	border-top-right-radius: 5px;
@@ -57,7 +58,7 @@ header input[type=text]{
 }
 
 .dropbtn {
-	background-color: #FDF590;
+	background-color: #ffe16b;
  	color: #000000;
   	padding: 1px;
  	font-size: 16px;
@@ -65,7 +66,7 @@ header input[type=text]{
  	float: right;
  	position: relative;
  	display: inline-block;
- 	top: -2.3rem; right:-17.5rem;
+ 	right:-17.5rem;
  	height: 2.3rem; width: 2.3rem;
 }
 
@@ -80,7 +81,7 @@ header input[type=text]{
   background-color: #f1f1f1;
   width: 100px;
   float: right;
-  top: 0rem; right:-18.5rem;
+  top: 2.3rem; right:-18.6rem;
   z-index: 1;
 }
 
@@ -89,7 +90,7 @@ header input[type=text]{
   padding: 7px 7px;
   text-decoration: none;
   display: block;
-  	font-family: 'Nunito Sans', sans-serif;
+  	font-family: 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	font-size: 12px;
 }
@@ -97,7 +98,8 @@ header input[type=text]{
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
-/* - - - main - - - */
+
+/* - - - Main Content/Body - - - */
 .content{
 	position: absolute;
 	background-color: #fff;
@@ -113,7 +115,7 @@ header input[type=text]{
 	top: 0rem;
 	width: 85%;
 	border-radius: 30px;
-	padding:10px;
+	padding:10px 10px 5px 10px;
 	border:3px solid #EFB033; 
 }
 
@@ -121,12 +123,14 @@ header input[type=text]{
 	height: 2rem;
 	width: 15rem;
 	padding: 2px 2px 2px 5px;
+	margin-top:5px;
 	display: inline;
 	font: 14px 'Montserrat',sans-serif;
 	border: none;
 	background: none;
 }
  .searchbarhomepage button{
+ 	top:5px;
  	background-color: #fff;
  }
 
@@ -149,8 +153,7 @@ header input[type=text]{
   margin: auto;
   padding: 20px;
   width: 50%;
-  height: auto;
-  max-height: 80%;
+  max-height: 60%;
   border: 5px solid #3BC8AC;
   border-radius: 25px;
   overflow: auto;
@@ -197,17 +200,19 @@ td{
 	padding: 5px;
 	font-size: 14px;
 }
-
+/* - - - TEXT-RELATED - - - */
 h1{
 	font-family: 'Roboto', sans-serif;
 	color: #EFB033;
-	font-size; 20px;
+	font-size: 30px;
 	display: inline;
 	margin-top: 2rem;
 }
 h2{
-	font-size: 18px;
+	font-size: 22px;
 	font-family:'Montserrat', sans-serif;
+	font-weight: bolder;
+	letter-spacing: -1px;
 	color: #3BC8AC;
 }
 a{
@@ -225,11 +230,27 @@ a{
 	display: inline-block;
 	float: right; right: 5%;
 	margin-top: 3.9rem;
-	color: #38393a;
+	color: #fff;
+	letter-spacing: .5px;
+	font-weight: lighter;
 }
-
+#logo{
+	position: relative;
+	float: left;
+	display: inline;
+	top: 40px;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 20px;
+}
+b{
+	font-weight: bolder;
+}
+/* - - - FORMS-RELATED - - - */
 .input-group {
     margin: 10px 0px 10px 0px;
+    display: block;
 }
 
 .input-group label {
@@ -242,37 +263,57 @@ a{
 
 .input-group input {
 	margin-left: 1rem;
-	height: 20px;
+	height: 25px;
 	width: 50%;
 	padding: 5px 10px;
 	font-size: 15px;
 	border:none;
 	border-bottom: 2px solid #ccc;
+	font-size: 12px;
 }
 
 .checkboxes label {
 	display: block;
 	text-align: left;
     margin: 3px;
-	color: white;
-	font-family:  'Nunito Sans', sans-serif;
+	color: #000;
+	font-family:'Montserrat', sans-serif;
 }
 
 .checkboxes input {
 	font-size: 16px;
-	color: white;
+	color: #000;
 }
 textarea{
 	display: inline-block;
+	font-size:13px;
+	height: 100px; width:100%;
+	padding: 5px;
+	overflow: auto;
 }
 .btn {
-	padding: 3px;
+	padding: 5px;
+	margin-top:20px;margin-bottom: 0px;
 	font-size: 15px;
 	color: white;
-	background: #f99a2c;
+	background-color: #f99a2c;
 	border: none;
 	border-radius: 5px;
 	width: 20% !important;
-	font-family:  'Nunito Sans', sans-serif;
+	font-family:  'Montserrat', sans-serif;
 	text-transform: uppercase;
+
 }
+#login{
+	background-color: #f99a2c;
+	float: left;
+	align-self: center;
+	left: 40%;
+}
+.signup{
+	position: relative;
+	height: 50%;
+	width: 60%;
+	top: 150px;
+}
+
