@@ -40,7 +40,7 @@
 
 	</form>
 	</div>
-	<p><br><br><br>Create an account! <a href="register.php" style="color: #f99a2c">Sign up</a>
+	<br><br><p>Create an account! <a href="register.php" style="color: #f99a2c">Sign up</a></p>
 	</p>
 
 </body>
