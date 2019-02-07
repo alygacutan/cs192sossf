@@ -29,11 +29,11 @@
 				$result_view_all = $connection->query($sql_view_all);
 
 				if ($result_view_all->num_rows > 0) {
-						while($row = $result_view_all->fetch_assoc()) {
-								echo "<tr><td>".$row["name"]."</td><td>".$row["tags"]."</td><td>Edit, Delete</td></tr>";
-						}
+					while($row = $result_view_all->fetch_assoc()) {
+							echo "<tr><td><a href=#>".$row["name"]."</a></td><td>".$row["tags"]."</td><td><a href=#>Edit</a>, <a href=#>Delete</a></td></tr>";
+					}
 				} else {
-						echo "0 results";
+					echo "0 results";
 				}
 
 				?>
