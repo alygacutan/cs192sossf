@@ -108,8 +108,9 @@ header input[type=text]{
 	height: 100% !important;
 	padding: 30px 25px;
 	top: 7rem;
+	object-fit: contain;
 }
-
+/*Homepage Searchbar*/
 .searchbarhomepage{
 	position: relative;
 	top: 0rem;
@@ -134,6 +135,41 @@ header input[type=text]{
  	background-color: #fff;
  }
 
+ /*Establishment Page*/
+ .info{
+ 	width: 50%; height: 100%;
+ 	position: absolute;
+ 	padding: 10px 10px 10px 10px;
+ 	display: inline-block;
+ }
+ .reviewrate{
+ 	position: relative;
+ 	display: inline-block;
+ 	left:55%;
+ 	width: 40%; height: 100%;
+ 	padding: 10px 15px;
+ }
+.services{
+	border-top: 3.5px solid #ffe16b;
+	border-bottom: 3.5px solid #f99a2c;
+	border-right: 1px dashed #ccc;
+	border-left: 1px dashed #ccc;
+	height: 400px;
+	overflow: auto;
+	padding: 10px;
+}
+.map{
+	width: 300px; height: 300px;
+	border:3px solid #80ddcf;
+}
+.reviews{
+	width: 300px; height: 150px;
+	overflow: auto;
+	border:3px solid #80ddcf;
+}
+
+
+/*Add Establishment Popup window*/
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -174,7 +210,7 @@ header input[type=text]{
   cursor: pointer;
 }
 
-#myBtn{
+#myBtn, .myBtn{
 	float: right;
 	color: #3BC8AC;	
 	font-size: 1rem;
@@ -183,6 +219,13 @@ header input[type=text]{
 	height: 2rem;
 	width: auto;
 	background-color: none;
+}
+.myBtn{
+	text-transform: uppercase;
+	font-size: 13px;
+	display: inline;
+	margin:10px;
+	position: relative;
 }
 table{
 	margin-top:2rem;
@@ -246,6 +289,11 @@ a{
 }
 b{
 	font-weight: bolder;
+}
+p{
+	line-height: 2px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: normal;
 }
 /* - - - FORMS-RELATED - - - */
 .input-group {
@@ -316,4 +364,6 @@ textarea{
 	width: 60%;
 	top: 150px;
 }
-
+.checked{
+	color:#ffe16b;
+}
