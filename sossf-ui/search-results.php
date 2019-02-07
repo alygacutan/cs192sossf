@@ -16,7 +16,7 @@
     <h1>Search Results:</h1>
 
     <!-- ADD ESTABLISHMENT POPUP WINDOW -->
-    <button id="myBtn"> ADD ESTABLISHMENT </button>
+    <!-- <button id="myBtn"> ADD ESTABLISHMENT </button> -->
     
     <h2>WORK IN PROGRESS</h2>
     
