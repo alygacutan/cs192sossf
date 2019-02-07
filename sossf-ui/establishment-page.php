@@ -13,31 +13,34 @@
 
   <body>
     <div class="content" style="height: 100%">
-      <h1>All Establishments</h1>
-
-      <!-- ADD ESTABLISHMENT POPUP WINDOW -->
-      <button id="myBtn"> ADD ESTABLISHMENT </button>
-
-      <!-- <?php //include_once 'add-establishment.php' ?> -->
-
-      <table>
-        <tr><th>Name</th><th>Type/Tag(s)</th><th>Actions</th></tr>
-
-        <?php
-        $sql_view_all = "SELECT name, tags FROM Establishment";
-        $result_view_all = $connection->query($sql_view_all);
-        if ($result_view_all->num_rows > 0) {
-            while($row = $result_view_all->fetch_assoc()) {
-                echo "<tr><td>".$row["name"]."</td><td>".$row["tags"]."</td><td><a href=''>Edit</a>, <a href=''>Delete</a></td></tr>";
-            }
-        } else {
-            echo "<p color='red'>No results found.</p>";
-        }
-        ?>
-
-        <tr><td><a href="">Blessings</a></td><td>Print, Internet, Bind, Photocopy</td><td><a href="">Edit</a>,<a href="">Delete</a></td></tr>
-        <tr><td><a href="">Blessings</a></td><td>Print, Internet, Bind, Photocopy</td><td><a href="">Edit</a>,<a href="">Delete</a></td></tr>
-      </table>
+      
+      <div class="info">
+        <h1>Est. Name</h1>
+        <p>location</p>
+        <p>contact no.</p>
+        <p>tags</p>
+        <p>business hours</p>
+        <h2>Services:</h2>
+        <div class="services">
+            <p>...</p>
+        </div>
+      </div>
+      
+      <div class="reviewrate"><center><div>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span></div><br>
+          <button class="myBtn" style="margin-left:40px;float: left">Write a review</button>
+          <button class="myBtn" style="margin-right:40px;float: right;">Suggest an Edit</button>
+        <br><br>
+        <div class="map">coming soon...</div><br>
+        <label style="font-family: 'Montserrat', sans-serif; font-weight:normal; text-transform: uppercase; color: #f99a2c; font-size:15px">
+          Reviews and Comments</label><br>
+        <div class="reviews">coming soon...</div>
+      </center></div>
+    
     </div>
   </body>
 
