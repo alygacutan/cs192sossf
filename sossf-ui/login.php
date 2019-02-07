@@ -1,7 +1,8 @@
-<?php include('server.php'); 
-		include_once ('header.php');
-  		include_once ('extras.php');
-  		include('errors.php');?>
+<?php
+include('server.php'); 
+// include_once ('header.php');
+include_once ('extras.php');
+?>
 
 <!DOCTYPE html>
 <html>
@@ -10,13 +11,17 @@
 	<title>School and Office Supplies and Services Finder</title>
 </head>
 
-<body><div class="content"><center>
+<body><!-- <div class="content"> --><center>
 	<div class="signup">
 	<form class="container" method="post" action="login.php">
 
 		<div class="input-group">
-			<h2>Log In / Sign-up</h2>
+			<h2>Log In</h2>
 		</div>
+
+		<?php
+		include('errors.php');
+		?>
 
 		<div class="input-group">
 			<label>Username</label>
@@ -41,6 +46,6 @@
 	</div>
 	<br><br><p>Create an account! <a href="register.php" style="color: #f99a2c">Sign up</a></p>
 	</p>
-</div>
+<!-- </div> -->
 </body>
 </html>
