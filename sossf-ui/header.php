@@ -9,7 +9,7 @@
         <button class="dropbtn"><i class="material-icons">person</i></button>
           <div class="dropdown-content">
             <a href="#">Profile</a>
-            <!-- <a href="#">Link 2</a> -->
+            <a href="requests.php">Update Requests</a>
             <a href="index.php?logout='1'">Sign Out</a>
           </div>
         </div>

@@ -92,6 +92,7 @@ header input[type=text]{
   display: block;
   	font-family: 'Montserrat', sans-serif;
 	text-transform: uppercase;
+	font-weight: lighter;
 	font-size: 12px;
 }
 
@@ -231,6 +232,7 @@ table{
 	margin-top:2rem;
 	padding: 5px;
 	width: 100%;
+	overflow: auto;
 }
 th{
 	background-color: #3BC8AC;
@@ -240,7 +242,7 @@ th{
 }
 td{
 	border-bottom: 1.5px solid #3BC8AC;
-	padding: 5px;
+	padding: 5px ;
 	font-size: 14px;
 }
 /* - - - TEXT-RELATED - - - */
@@ -341,7 +343,8 @@ textarea{
 }
 .btn {
 	padding: 5px;
-	margin-top:20px;margin-bottom: 0px;
+	margin-top:20px;
+	margin-bottom: 10px;
 	font-size: 15px;
 	color: white;
 	background-color: #f99a2c;
@@ -350,19 +353,17 @@ textarea{
 	width: 20% !important;
 	font-family:  'Montserrat', sans-serif;
 	text-transform: uppercase;
-
 }
 #login{
 	background-color: #f99a2c;
 	float: left;
-	align-self: center;
 	left: 40%;
 }
 .signup{
 	position: relative;
 	height: 50%;
 	width: 60%;
-	top: 150px;
+	
 }
 .checked{
 	color:#ffe16b;
