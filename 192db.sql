@@ -2,6 +2,7 @@
 Code History
 v1.0 - Jan 28, 2019 - Initial file with CREATE TABLE statements [Daine Daling]
 v1.1 - Jan 29, 2019 - Added INSERT INTO statements [Daine Daling]
+v1.2 - Feb 8, 2019 - Added comments and other code information
 */
 
 /*
