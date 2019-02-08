@@ -1,3 +1,13 @@
+<!-- 
+Code History
+v1.0 - Feb 05, 2019 - Initial file - Javascript [Aly Gacutan]
+
+File Creation Date: Feb 05,2019
+Development Group: SOSSF Group 
+Client Group: N/A
+Purpose: The HTML/PHP File for View All Page.
+ -->
+
 function search(){
   var input = document.getElementById("search");
 } 
