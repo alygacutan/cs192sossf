@@ -38,6 +38,7 @@ CREATE TABLE Establishment (
   establishmentID BIGINT NOT NULL AUTO_INCREMENT,
   name VARCHAR(250) NOT NULL,
   location VARCHAR(250) NOT NULL,
+  services VARCHAR(250),
   tags VARCHAR(250),
   businessHours VARCHAR(100),
   contactNo VARCHAR(100),
@@ -62,4 +63,4 @@ INSERT INTO EstablishmentRepresentative VALUES("estrep_test1","estrep1","estrep1
 INSERT INTO EstablishmentRepresentative VALUES("estrep_test2","estrep2","estrep2@test.com","testpass","");
 INSERT INTO Admin VALUES(1,"daine","dainedaling@gmail.com","password");
 INSERT INTO Establishment VALUES(1,"est_test1","est1","UP Diliman","printing, photocopy","8am to 5pm","09995551234","","1","estrep_test1");
-INSERT INTO Establishment VALUES(2,"est_test2","est2","UP Village","books","9am to 7pm","09154444321","","0","estrep_test2");
+INSERT INTO Establishment VALUES(2,"est_test2","est2","UP Village","books","9am to 7pm","09154444321","","0",NULL);
