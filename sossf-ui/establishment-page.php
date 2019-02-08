@@ -1,3 +1,14 @@
+<!-- 
+Code History
+v1.0 - Feb 06, 2019 - Initial file - HTML [Aly Gacutan]
+v1.1 - Feb 06, 2019 - Minor revisions [Aly Gacutan]
+v2.0 - Feb 07, 2019 - Added PHP code [Kenneth Santos]
+
+File Creation Date: Feb 06,2019
+Development Group: SOSSF Group 
+Client Group: N/A
+Purpose: The HTML/PHP File for View All Page.
+ -->
 <?php
 	include_once ('server.php');
 	include_once ('header.php');
