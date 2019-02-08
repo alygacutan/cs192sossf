@@ -1,4 +1,16 @@
-  <!-------------------------------- HEADER -------------------------------->
+<!-- 
+Code History
+v1.0 - Feb 05, 2019 - Initial file - HTML [Aly Gacutan]
+v2.0 - Feb 06, 2019 - Revised HTML code, minor changes [Aly Gacutan]
+v3.0 - Feb 07, 2019 - Revised HTML code, minor changes [Kenneth Santos]
+v4.0 - Feb 08, 2019 - Revised HTML code [Aly Gacutan]
+
+File Creation Date: Feb 05,2019
+Development Group: SOSSF Group 
+Client Group: N/A
+Purpose: The HTML/PHP File for Header.
+ -->
+<!-------------------------------- HEADER -------------------------------->
     <header>
       <a href="homepage.php" id="logo"><i>School and Office </i><br><b> Supplies and Services Finder<b></a>
       
