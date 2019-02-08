@@ -1,3 +1,12 @@
+<!-- 
+Code History
+v1.0 - Feb 06, 2019 - Initial file - PHP [Kenneth]
+
+File Creation Date: Feb 06,2019
+Development Group: SOSSF Group 
+Client Group: N/A
+Purpose: The HTML/PHP File for Login Page.
+ -->
 <?php
 include('server.php'); 
 // include_once ('header.php');
