@@ -24,7 +24,7 @@
         <tr><th>Name</th><th>Type/Tag(s)</th><th>Actions</th></tr>
 
         <?php
-        $sql_view_all = "SELECT name, tags FROM Establishment";
+        $sql_view_all = "SELECT name, tags FROM Establishment wHERE status=1";
         $result_view_all = $connection->query($sql_view_all);
         if ($result_view_all->num_rows > 0) {
             while($row = $result_view_all->fetch_assoc()) {
