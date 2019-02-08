@@ -1,3 +1,13 @@
+<!-- 
+Code History
+v1.0 - Feb 06, 2019 - Initial file - HTML [Kenneth Santos]
+
+File Creation Date: Feb 06,2019
+Development Group: SOSSF Group 
+Client Group: N/A
+Purpose: The PHP Index File.
+ -->
+
 <?php
 	session_start();
 	if (!isset($_SESSION['username'])) {
