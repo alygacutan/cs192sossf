@@ -1,3 +1,12 @@
+<!-- 
+Code History
+v1.0 - Feb 08, 2019 - Initial file - HTML [Aly Gacutan]
+
+File Creation Date: Feb 08,2019
+Development Group: SOSSF Group 
+Client Group: N/A
+Purpose: The HTML/PHP File for View All Page (Student or Establishment User).
+ -->
 <?php
   include_once ('server.php');
   include_once ('header.php');
