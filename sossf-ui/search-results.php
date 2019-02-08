@@ -1,11 +1,12 @@
 <!-- 
 Code History
 v1.0 - Feb 06, 2019 - Initial file - HTML [Aly Gacutan]
-v2.0 - Feb 07, 2019 - Added PHP code [Kenneth Santos]
-v2.1 - Feb 07, 2019 - Revised HTML code, minor changes [Aly Gacutan]
-v2.2 - Feb 07, 2019 - Revised PHP code [Kenneth Santos]
-v3.0 - Feb 08, 2019 - Revised HTML code, minor changes [Aly Gacutan]
-v3.1 - Feb 08, 2019 - Revised PHP code [Kenneth Santos]
+v2.0 - Feb 07, 2019 - Revised HTML code, minor changes [Aly Gacutan]
+v2.1 - Feb 07, 2019 - Added PHP code [Kenneth Santos]
+v2.2 - Feb 07, 2019 - Revised HTML code [Aly Gacutan]
+v3.0 - Feb 08, 2019 - Revised PHP code [Kenneth Santos]
+v3.1 - Feb 08, 2019 - Revised HTML code, minor changes [Aly Gacutan]
+
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
