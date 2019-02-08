@@ -5,7 +5,7 @@ v1.0 - Feb 06, 2019 - Initial file - Javascript [Aly Gacutan]
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
 Client Group: N/A
-Purpose: The HTML/PHP File for View All Page.
+Purpose: The Javascript File for javascript functions.
  -->
 
 function search(){
