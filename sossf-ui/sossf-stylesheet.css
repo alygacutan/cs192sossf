@@ -61,18 +61,18 @@ header input[type=text]{
 	background-color: #ffe16b;
  	color: #000000;
   	padding: 1px;
- 	font-size: 16px;
  	border: none;
  	float: right;
  	position: relative;
- 	display: inline-block;
- 	right:-17.5rem;
+ 	display: inline;
+ 	right:-17.5rem; 
  	height: 2.3rem; width: 2.3rem;
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
+  position: absolute;
+  top:0px;
+  display: inline;
 }
 
 .dropdown-content {
@@ -242,7 +242,7 @@ th{
 }
 td{
 	border-bottom: 1.5px solid #3BC8AC;
-	padding: 5px ;
+	padding: 5px 5px 5px 10px;
 	font-size: 14px;
 }
 /* - - - TEXT-RELATED - - - */
