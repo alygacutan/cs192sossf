@@ -368,3 +368,9 @@ textarea{
 .checked{
 	color:#ffe16b;
 }
+.profile-pic{
+	border-radius: 50px;
+	width: 100px; height: 100px;
+	/*border: 1px solid #f99a2c;*/
+	display: inline-block;
+}
