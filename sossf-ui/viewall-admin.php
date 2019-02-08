@@ -7,6 +7,7 @@
 
 <!DOCTYPE html>
 <html>
+
   
   <head><title>School and Office Supplies and Services Finder</title>
   </head>
@@ -24,11 +25,12 @@
         <tr><th>Name</th><th>Type/Tag(s)</th><th>Actions</th></tr>
 
         <?php
-        $sql_view_all = "SELECT name, tags FROM Establishment wHERE status=1";
+        $sql_view_all = "SELECT * FROM Establishment wHERE status=1";
         $result_view_all = $connection->query($sql_view_all);
         if ($result_view_all->num_rows > 0) {
             while($row = $result_view_all->fetch_assoc()) {
-                echo "<tr><td><a href='establishment-page.php'>".$row["name"]."</td><td>".$row["tags"]."</td><td><a href=''>Edit</a>, <a href=''>Delete</a></td></tr>";
+              echo "<tr><td><a href='establishment-page.php?est=".$row["establishmentID"]."'>".$row["name"]."</a></td><td>".$row["tags"]."</td><td><a href=''>Edit</a>, <a href=''>Delete</a></td></tr>";
+
             }
         } else {
             echo "<p color='red'>No results found.</p>";
