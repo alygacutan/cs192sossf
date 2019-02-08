@@ -10,7 +10,7 @@ v3.1 - Feb 08, 2019 - Revised PHP code [Kenneth Santos]
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
 Client Group: N/A
-Purpose: The HTML/PHP File for View All Page.
+Purpose: The HTML/PHP File for Add Establishment Function.
  -->
 
 <?php
