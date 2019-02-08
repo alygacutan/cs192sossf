@@ -1,3 +1,13 @@
+<!-- 
+Code History
+v1.0 - Feb 05, 2019 - Initial file - PHP [Aly Gacutan]
+v2.0 - Feb 06, 2019 - Revised PHP code [Kenneth Santos]
+
+File Creation Date: Feb 05,2019
+Development Group: SOSSF Group 
+Client Group: N/A
+Purpose: The HTML/PHP File for View All Page.
+ -->
 <?php if(count($errors)>0): ?>
 
 	<div class="error">
