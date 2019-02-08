@@ -51,6 +51,8 @@ CREATE TABLE Admin (
   password VARCHAR(100) NOT NULL
 );
 
+
+/* The following statements are for sample input used for Sprint 1 */
 INSERT INTO Student VALUES("student_test1","student1","student1@test.com","testpass","none","");
 INSERT INTO EstablishmentRepresentative VALUES("estrep_test1","estrep1","estrep1@test.com","testpass","");
 INSERT INTO EstablishmentRepresentative VALUES("estrep_test2","estrep2","estrep2@test.com","testpass","");
