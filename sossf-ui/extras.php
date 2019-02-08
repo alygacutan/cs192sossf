@@ -1,4 +1,13 @@
+<!-- 
+Code History
+v1.0 - Feb 06, 2019 - Initial file - HTML [Aly Gacutan]
+v2.0 - Feb 07, 2019 - Minor revisions [Aly Gacutan]
 
+File Creation Date: Feb 06,2019
+Development Group: SOSSF Group 
+Client Group: N/A
+Purpose: The HTML/Script File for Extra Styling.
+ -->
 <!-- PLUGINS / EXTENSIONS /DONWLOADS to make the website more "suited" to different users-->
 <base target="_top">
   <link rel="stylesheet" type="text/css" href="sossf-stylesheet.css">
