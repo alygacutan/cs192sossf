@@ -11,6 +11,7 @@ Client Group: N/A
 Purpose: This file creates and partially populates the database for the SOSSF project
 */
 
+/* Table for registered Student users */
 CREATE TABLE Student (
   username VARCHAR(100) NOT NULL,
   name VARCHAR(100) NOT NULL,
@@ -21,6 +22,7 @@ CREATE TABLE Student (
   PRIMARY KEY (username)
 );
 
+/* Table for registered Establishment Representative users */
 CREATE TABLE EstablishmentRepresentative (
   username VARCHAR(100) NOT NULL,
   name VARCHAR(100) NOT NULL,
@@ -30,6 +32,7 @@ CREATE TABLE EstablishmentRepresentative (
   PRIMARY KEY (username)
 );
 
+/* Table for Establishments */
 CREATE TABLE Establishment (
   establishmentID BIGINT NOT NULL,
   name VARCHAR(250) NOT NULL,
@@ -44,13 +47,13 @@ CREATE TABLE Establishment (
   FOREIGN KEY (username) REFERENCES EstablishmentRepresentative(username)
 );
 
+/* Table for Admin users */
 CREATE TABLE Admin (
   adminID INT NOT NULL,
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL
 );
-
 
 /* The following statements are for sample input used for Sprint 1 */
 INSERT INTO Student VALUES("student_test1","student1","student1@test.com","testpass","none","");
