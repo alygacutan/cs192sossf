@@ -7,7 +7,7 @@ v2.0 - Feb 07, 2019 - Added PHP code [Kenneth Santos]
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
 Client Group: N/A
-Purpose: The HTML/PHP File for View All Page.
+Purpose: The HTML/PHP File for Establishment Page.
  -->
 <?php
 	include_once ('server.php');
