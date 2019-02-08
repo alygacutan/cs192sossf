@@ -1,3 +1,13 @@
+<!-- 
+Code History
+v1.0 - Feb 06, 2019 - Initial file - HTML [Aly Gacutan]
+v2.0 - Feb 07, 2019 - Revised PHP code [Kenneth Santos]
+
+File Creation Date: Feb 06,2019
+Development Group: SOSSF Group 
+Client Group: N/A
+Purpose: The PHP Server File for connecting php files.
+ -->
 <?php
 	session_start();
 
