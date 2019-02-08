@@ -5,8 +5,9 @@
       <div class="searchbar"><form action="search-results.php" method="post">
        <button type="submit"><i class="fa fa-search"></i></button>
        <input type="text" placeholder="Search..." name="input" value="">
+     </form>
        <div class="dropdown">
-        <button class="dropbtn"><i class="material-icons">person</i></button>
+        <button class="dropbtn"><a style="color:#000; display: inline;" href="profile-page.php"><i class="material-icons">person</i></a></button>
           <div class="dropdown-content">
             <a href="profile-page.php">Profile</a>
             <a href="requests.php">Update Requests</a>
