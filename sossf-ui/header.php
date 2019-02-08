@@ -8,7 +8,7 @@
        <div class="dropdown">
         <button class="dropbtn"><i class="material-icons">person</i></button>
           <div class="dropdown-content">
-            <a href="#">Profile</a>
+            <a href="profile-page.php">Profile</a>
             <a href="requests.php">Update Requests</a>
             <a href="index.php?logout='1'">Sign Out</a>
           </div>
