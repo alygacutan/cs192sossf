@@ -1,7 +1,7 @@
 <!-- 
 Code History
 v1.0 - Feb 08, 2019 - Initial file - HTML [Aly Gacutan]
-v1.1 - Feb 06, 2019 - Added PHP code [Kenneth Santos]
+v1.1 - Feb 08, 2019 - Added PHP code [Kenneth Santos]
 
 File Creation Date: Feb 08,2019
 Development Group: SOSSF Group 
