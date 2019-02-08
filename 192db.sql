@@ -35,7 +35,7 @@ CREATE TABLE EstablishmentRepresentative (
 
 /* Table for Establishments */
 CREATE TABLE Establishment (
-  establishmentID BIGINT NOT NULL,
+  establishmentID BIGINT NOT NULL AUTO_INCREMENT,
   name VARCHAR(250) NOT NULL,
   location VARCHAR(250) NOT NULL,
   tags VARCHAR(250),
