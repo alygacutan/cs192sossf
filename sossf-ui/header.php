@@ -41,21 +41,35 @@ Purpose: The HTML/PHP File for Header.
  -->
  
 <!-------------------------------- HEADER -------------------------------->
-    <header>
-      <a href="homepage.php" id="logo"><i>School and Office </i><br><b> Supplies and Services Finder<b></a>
-      
-      <div class="searchbar"><form action="search-results.php" method="post">
-       <button type="submit"><i class="fa fa-search"></i></button>
-       <input type="text" placeholder="Search..." name="input" value="">
-     </form>
-       <div class="dropdown">
-        <button class="dropbtn"><a style="color:#000; display: inline;" href="profile-page.php"><i class="material-icons">person</i></a></button>
-          <div class="dropdown-content">
-            <a href="profile-page.php">Profile</a>
-            <a href="requests.php">Update Requests</a>
-            <a href="index.php?logout='1'">Sign Out</a>
-          </div>
+<header>
+    <div class="logo"><a href="homepage.php" id="logo"><i>School and Office </i><br><b> Supplies and Services Finder</b></a></div>
+      <div class="nav">
+        <div class="searchbar"><form action="search-results.php" method="post">
+         <button type="submit"><i class="fa fa-search"></i></button>
+         <input type="text" placeholder="Search..." name="input" value=""></form>
         </div>
-    </div>
-      <a href="viewall-admin.php" class="viewall">View All</a>
+         <div class="dropdown">
+          <button class="dropbtn">
+            <a style="color:#000; display: inline;" href="profile-page.php"><i class="material-icons">person</i></a>
+          </button>
+            <div class="dropdown-content">
+              <a href="profile-page.php">Profile</a>
+              <a href="requests.php">Update Requests</a>
+              <a href="index.php?logout='1'">Sign Out</a>
+            </div>
+        </div>
+      
+        <a href="viewall-admin.php" class="viewall">View All</a>
+      </div>
     </header>
+
+<script type="text/javascript">
+  $(window).on("scroll", function() {
+    if($(window).scrollTop() > 50) {
+        $("header").addClass("active");
+    } else {
+        //remove the background property so it comes transparent again (defined in your css)
+       $("header").removeClass("active");
+    }
+});
+</script>

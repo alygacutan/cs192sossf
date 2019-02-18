@@ -1,7 +1,7 @@
 /*<!--
 MIT License
 
-Copyright (c) 2019 Aly Gacutan, Kenneth Santos
+Copyright (c) 2019 Aly Gacutan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -35,43 +35,60 @@ v3.0 - Feb 07, 2019 - Revised HTML code, minor changes [Aly Gacutan]
 v3.1 - Feb 07, 2019 - Revised HTML code, hompage styling, establishment page styling, minor changes [Aly Gacutan]
 v4.0 - Feb 08, 2019 - Revised HTML code, profile page, minor changes [Aly Gacutan]
 v4.1 - Feb 08, 2019 - Revised HTML code, minor changes [Aly Gacutan]
-
+v5.1 - Feb 10, 2019 - Revised CSS code for Homepage.php [Aly Gacutan]
+v6.0 - Feb 17, 2019 - Revised CSS code for Header, View All Page [Aly Gacutan]
 File Creation Date: Feb 03,2019
 Development Group: SOSSF Group 
 Client Group: N/A
 Purpose: The CSS (stylesheet) file for the application.
  -->*/
-
+head{
+	background-color: #ffe16b;
+	height: 5rem;
+}	
 body{
-	background-color: #FCFCFC;
+	background-color: #FFF;
 	margin-right: 10%;
 	margin-left: 10%;
 	font-family: 'Nunito Sans', sans-serif;
+	cursor: pointer;
 }
 .logo{
+	top:-30px;
+	position: absolute;
 	max-height: 100px;
+	display: inline-block;
+	font-size: 1vw;
 }
 header{
 	position: absolute;
-	height: 5rem;
+	height: 4rem;
+	box-sizing: border-box;
 	z-index: 1;
-	background-color: #ffe16b;
+	background-color: rgba(255,225,107,1);
 	padding: 10px;
 	object-fit: contain;
-	top: 0px; 
-	width: 78%;
+	top: 0px; left:0px; right:0px;
+	width: 100%;
 	max-width: 100%;
 }
-
+.active{
+	background-color: none;
+}
+header .nav{
+	display: inline-block;
+	float: right; top:15px;
+	position: relative;
+	width:40%;
+}
 header .searchbar{
 	display: inline-block;
 	position: relative;
 	float: right;
-	margin-top: 3.1rem;
 	right:3rem;
 	width:17rem;
 	opacity: .8;
-	border-top-left-radius: 10px;
+	border-radius: 10px;
 }
 button[type=submit]{
 	float: right;
@@ -84,7 +101,8 @@ button[type=submit]{
 	height:2rem;
 	width: 2.5rem;
 	background-color: #f9fafc;
-	border-top-right-radius: 5px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
 header input[type=text]{
 	float: right;
@@ -93,11 +111,20 @@ header input[type=text]{
 	height: 0.3rem;
 	font-family: 'Nunito', sans-serif;
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: .9vw;
 	display: inline-block;
 	position: relative;
 	border: none;
 	background-color: #f9fafc;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+.dropdown {
+  position: absolute;
+  float: right;
+  right: 18rem;
+  display: inline;
+  object-fit: contain;
 }
 
 .dropbtn {
@@ -106,25 +133,22 @@ header input[type=text]{
   	padding: 1px;
  	border: none;
  	float: right;
- 	position: relative;
+ 	position: absolute;
  	display: inline;
  	right:-17.5rem; 
  	height: 2.3rem; width: 2.3rem;
 }
 
-.dropdown {
-  position: absolute;
-  top:0px;
-  display: inline;
-}
-
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
-  width: 100px;
+  background-color: #FFF;
+  border-left:1px dashed #ccc;
+  border-right: 1px dashed #ccc;
+  border-bottom: 3px solid rgba(255,225,107,1);
+  width: 150px;
   float: right;
-  top: 2.3rem; right:-18.6rem;
+  top: 2.45rem; right:-18.6rem;
   z-index: 1;
 }
 
@@ -137,48 +161,112 @@ header input[type=text]{
 	text-transform: uppercase;
 	font-weight: lighter;
 	font-size: 12px;
+	text-align: right;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+	border-bottom: 3px solid orange;
+}
 
 .dropdown:hover .dropdown-content {display: block;}
 
 /* - - - Main Content/Body - - - */
-.content{
+.content-header{
 	position: absolute;
-	background-color: #fff;
-	width: 75.6%;
-	max-width: 100%;
-	height: 100% !important;
+	float: left; left:0; top: 4rem;
+	box-sizing: border-box;
+	width: 40%; height: 90%;
+	padding: 30px;
+	align-items: center;
+}
+.viewall-content{
+	position: absolute;
+	float: right; right: 0rem;
+	background-color: #FFF;
+	box-sizing: border-box;
+	width: 60%;
+	height: 90% !important;
 	padding: 30px 25px;
-	top: 7rem;
+	top: 4rem;
 	object-fit: contain;
 }
-/*Homepage Searchbar*/
+.content{
+	position: absolute;
+	background-color: #FFF;
+	box-sizing: border-box;
+	width: 80%;
+	padding: 30px 25px;
+	top: 4rem;
+	object-fit: contain;
+}
+/*Homepage*/
+.homepage{
+	position: absolute;
+	float: right; right: 0rem;
+	top:4rem;  width: 50%;
+	box-sizing: border-box;
+	height: 90%;
+	padding: 20px 10px;
+	overflow: auto;
+}
+#homepagebg{
+	position: fixed;
+	left:0px;
+	width:  50%;
+	height: 90%;
+	z-index: -1;
+}
 .searchbarhomepage{
 	position: relative;
-	top: 0rem;
-	width: 85%;
-	border-radius: 30px;
-	padding:10px 10px 5px 10px;
+	width: 70%;
+	border-radius: 70px;
+	padding:5px 5px 0px 5px;
 	border:3px solid #EFB033; 
+	background-color:#fff;
+	box-sizing: border-box;
+	align-items: center;
 }
 
 .searchbarhomepage input, .searchbarhomepage select{
 	height: 2rem;
-	width: 15rem;
-	padding: 2px 2px 2px 5px;
-	margin-top:5px;
-	display: inline;
-	font: 14px 'Montserrat',sans-serif;
+	width: 20rem;
+	padding: 5px 5px 5px 8px;
+	margin-top:3px;
+	display: block;
+	font: 13px 'Montserrat',sans-serif;
 	border: none;
 	background: none;
+	
 }
  .searchbarhomepage button{
  	top:5px;
  	background-color: #fff;
  }
-
+ .icon-container{
+ 	width: 5rem; height: 6.5rem;
+ 	display: inline-grid; position: relative;
+ 	margin: 5px;
+ }
+ .icon-container:hover{
+ 	border-bottom: 2px solid orange;
+ 	height: 6.45rem;
+ }
+ i:hover{
+ 	color:rgba(255,225,107,1);
+ }
+ 
+ .icon-bg{
+ 	width: 4rem; height: 4rem;
+ 	display: inline-grid; position: relative;
+ 	align-items: center;
+ 	border-radius: 3rem;
+ 	box-sizing: border-box;	
+ 	margin-bottom: 5px;
+ }
+.tags-icons{
+	position: relative;
+	display: block;
+}
  /*Establishment Page*/
  .info{
  	width: 50%; height: 100%;
@@ -253,21 +341,30 @@ header input[type=text]{
   text-decoration: none;
   cursor: pointer;
 }
-
+#myBtn{
+	position: absolute;
+	top: 50%;
+	border: 2px solid rgba(255,225,107,1);
+	border-radius: 1rem;
+}
 #myBtn, .myBtn{
 	float: right;
 	color: #3BC8AC;	
 	font-size: 1rem;
 	font-family: 'Nunito Sans', sans-serif;
-	border: none;
 	height: 2rem;
 	width: auto;
 	background-color: none;
+}
+#myBtn:hover{
+	box-shadow: 0.5rem 0.5rem 1rem rgba(255,225,107,0.3);
+	color: orange;
 }
 .myBtn{
 	text-transform: uppercase;
 	font-size: 13px;
 	display: inline;
+	border: none;
 	margin:10px;
 	position: relative;
 }
@@ -283,16 +380,23 @@ th{
 	font-size:16px;
 	padding: 5px;
 }
+tr:nth-child(odd) {
+  background-color: #fffff3;
+}
+tr:hover{
+	background-color: #fffff1;
+}
 td{
 	border-bottom: 1.5px solid #3BC8AC;
 	padding: 5px 5px 5px 10px;
 	font-size: 14px;
 }
+
 /* - - - TEXT-RELATED - - - */
 h1{
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	color: #EFB033;
-	font-size: 30px;
+	font-size: 4vw
 	display: inline;
 	margin-top: 2rem;
 }
@@ -300,14 +404,24 @@ h2{
 	font-size: 22px;
 	font-family:'Montserrat', sans-serif;
 	font-weight: bolder;
+	text-shadow: 2px 2px 2px #fff;
 	letter-spacing: -1px;
 	color: #3BC8AC;
+}
+h3{
+	font-family: 'Roboto', sans-serif;
+	color: #EFB033;
+	font-size: 30px;
+	display: inline;
+	margin-top: 2rem;
 }
 a{
 	font-family: 'Nunito Sans', sans-serif;
 	text-decoration: none;
 }
-
+a:hover{
+	font-style: italic;
+}
 .link, .viewall{
 	font-family: 'Nunito Sans', sans-serif;
 	text-transform: uppercase;
@@ -317,7 +431,7 @@ a{
 	position: relative;
 	display: inline-block;
 	float: right; right: 5%;
-	margin-top: 3.9rem;
+	top:10px;
 	color: #fff;
 	letter-spacing: .5px;
 	font-weight: lighter;
@@ -330,7 +444,7 @@ a{
 	font-family: 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	color: #fff;
-	font-size: 20px;
+	font-size: 1.5vw;
 }
 b{
 	font-weight: bolder;
@@ -339,6 +453,10 @@ p{
 	line-height: 2px;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: normal;
+}
+.error{
+	color: #f76d47;
+	line-height: .3rem;
 }
 /* - - - FORMS-RELATED - - - */
 .input-group {
@@ -390,10 +508,10 @@ textarea{
 	margin-bottom: 10px;
 	font-size: 15px;
 	color: white;
-	background-color: #f99a2c;
+	background-color: #f9e770;
 	border: none;
-	border-radius: 5px;
-	width: 20% !important;
+	border-radius: 1rem !important;
+	width: auto !important;
 	font-family:  'Montserrat', sans-serif;
 	text-transform: uppercase;
 }
@@ -404,10 +522,12 @@ textarea{
 }
 .signup{
 	position: relative;
-	height: 50%;
+	height: 70%;
 	width: 60%;
-	
+	box-sizing: border-box;
+	padding: 1rem;
 }
+
 .checked{
 	color:#ffe16b;
 }
@@ -416,4 +536,15 @@ textarea{
 	width: 100px; height: 100px;
 	/*border: 1px solid #f99a2c;*/
 	display: inline-block;
+}
+
+@media screen and (max-width:800px) {
+  header, .content, .nav{
+  	box-sizing: border-box;
+    min-width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+    flex-wrap: nowrap;
+  }
+  .logo,.nav{
+  	display: block;
+  }
 }

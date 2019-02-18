@@ -67,7 +67,7 @@ Purpose: The HTML/PHP File for Establishment Page.
 			<div class="info">
 
 				<?php
-				echo "<h1>".$result['name']."</h1>";
+				echo "<h3>".$result['name']."</h3>";
 				echo "<p>".$result['location']."</p>";
 				echo "<p>".$result['contactNo']."</p>";
 				echo "<p>".$result['tags']."</p>";

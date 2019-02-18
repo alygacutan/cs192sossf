@@ -30,6 +30,7 @@ the AY 2018-2019
  <!-- 
 Code History
 v1.0 - Feb 06, 2019 - Initial file - PHP [Kenneth Santos]
+v2.0 - Feb 18, 2019 - Minor HTML/CSS revisions [Aly Gacutan]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -50,14 +51,16 @@ include_once ('extras.php');
 	<title>School and Office Supplies and Services Finder</title>
 </head>
 
-<body><!-- <div class="content"> --><center>
+<body><!-- <div class="content"> -->
+	<div class="homepage"><img id="homepagebg" src="bg3.png">
+		<center>
 	<div class="signup">
 	<form class="container" method="post" action="login.php">
 
 		<div class="input-group">
-			<h2>Log In</h2>
+			<h2 style="font-size: 3vw">Log In</h2>
 		</div>
-
+		
 		<?php
 		include('errors.php');
 		?>
@@ -73,7 +76,7 @@ include_once ('extras.php');
 		</div>
 
 		<div class="input-group">
-			<button type="submit" class="btn" name="login_user" id="login">Login</button>
+			<button class="btn" type="submit" name="login_user" id="login">Login</button>
 			<script type="text/javascript">
 				var btn = document.getElementById('login');
 				btn.addEventListener('click', function() {
@@ -85,6 +88,7 @@ include_once ('extras.php');
 	</div>
 	<br><br><p>Create an account! <a href="register.php" style="color: #f99a2c">Sign up</a></p>
 	</p>
+</div>
 <!-- </div> -->
 </body>
 </html>

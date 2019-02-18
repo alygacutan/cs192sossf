@@ -56,10 +56,10 @@ Purpose: The PHP Server File for connecting php files.
 		$password = mysqli_real_escape_string($connection, $_POST['password']);
 
 		if (empty($username)) {
-			array_push($errors, "Username is required");
+			array_push($errors, "<p class='error'> Username is required </p>");
 		}
 		if (empty($password)) {
-			array_push($errors, "Password is required");
+			array_push($errors, "<p class='error'>Password is required</p>");
 		}
 
 		if (count($errors) == 0) {

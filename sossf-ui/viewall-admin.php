@@ -35,6 +35,7 @@ v2.0 - Feb 07, 2019 - Revised HTML code, minor changes [Aly Gacutan]
 v2.1 - Feb 07, 2019 - Revised PHP code [Kenneth Santos]
 v3.0 - Feb 08, 2019 - Revised HTML code, minor changes [Aly Gacutan]
 v3.1 - Feb 08, 2019 - Revised PHP code [Kenneth Santos]
+v4.0 - Feb 17, 2019 - Revised HTML code [Aly Gacutan]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -57,14 +58,15 @@ Purpose: The HTML/PHP File for View All Page.
   </head>
 
   <body>
-    <div class="content" style="height: 100%">
-      <h1>All Establishments</h1>
-
+    <div class="content-header">
+      <h1 style="position:absolute;top:5rem;font-size: 4vw">All Establishments</h1>
       <!-- ADD ESTABLISHMENT POPUP WINDOW -->
       <button id="myBtn"> ADD ESTABLISHMENT </button>
 
       <!-- <?php //include_once 'add-establishment.php' ?> -->
-
+    </div>
+    <div class="viewall-content" style="height: 100%">
+      
       <table>
         <tr><th>Name</th><th>Type/Tag(s)</th><th>Actions</th></tr>
 
@@ -80,15 +82,11 @@ Purpose: The HTML/PHP File for View All Page.
             echo "<p color='red'>No results found.</p>";
         }
         ?>
-
-        <!--<tr><td><a href="establishment-page.php">Blessings</a></td><td>Print, Internet, Bind, Photocopy</td><td><a href="">Edit</a>,<a href="">Delete</a></td></tr>
-        <tr><td><a href="">Blessings</a></td><td>Print, Internet, Bind, Photocopy</td><td><a href="">Edit</a>,<a href="">Delete</a></td></tr> -->
       </table>
     </div>
   </body>
 
-  <script
-  type="text/javascript" src="add-establishment.js">
+  <script type="text/javascript" src="add-establishment.js">
   </script>
 
   </html>
