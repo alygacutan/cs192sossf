@@ -51,7 +51,7 @@ CREATE TABLE Student (
   email VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
   creationDate DATE,
-  PRIMARY KEY (username,userID)
+  PRIMARY KEY (studentID,username)
 );
 
 /* Table for registered Establishment Representative users */
@@ -62,7 +62,7 @@ CREATE TABLE EstablishmentRepresentative (
   email VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
   creationDate DATE,
-  PRIMARY KEY (username,estrepID)
+  PRIMARY KEY (estrepID,username)
 );
 
 /* Table for Establishments */
@@ -87,7 +87,7 @@ CREATE TABLE Admin (
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
-  PRIMARY KEY (adminID, username)
+  PRIMARY KEY (adminID,username)
 );
 
 CREATE VIEW User AS
