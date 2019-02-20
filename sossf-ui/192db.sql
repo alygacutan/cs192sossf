@@ -32,6 +32,7 @@ Code History
 v1.0 - Jan 28, 2019 - Initial file with CREATE TABLE statements [Daine Daling]
 v1.1 - Jan 29, 2019 - Added INSERT INTO statements [Daine Daling]
 v1.2 - Feb 8, 2019 - Added comments and other code information
+v2.0 - Feb 20, 2019 - Added Users View
 */
 
 /*
@@ -43,23 +44,25 @@ Purpose: This file creates and partially populates the database for the SOSSF pr
 
 /* Table for registered Student users */
 CREATE TABLE Student (
+  studentID INT NOT NULL,
   username VARCHAR(100) NOT NULL,
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
   affiliation VARCHAR(100),
   creationDate DATE,
-  PRIMARY KEY (username)
+  PRIMARY KEY (username,userID)
 );
 
 /* Table for registered Establishment Representative users */
 CREATE TABLE EstablishmentRepresentative (
+  estrepID INT NOT NULL,
   username VARCHAR(100) NOT NULL,
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
   creationDate DATE,
-  PRIMARY KEY (username)
+  PRIMARY KEY (username,estrepID)
 );
 
 /* Table for Establishments */
@@ -81,10 +84,28 @@ CREATE TABLE Establishment (
 /* Table for Admin users */
 CREATE TABLE Admin (
   adminID INT NOT NULL,
+  username VARCHAR(100) NOT NULL,
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
-  password VARCHAR(100) NOT NULL
+  password VARCHAR(100) NOT NULL,
+  PRIMARY KEY (adminID, username)
 );
+
+CREATE VIEW User AS
+SELECT studentID as userID,
+  username,
+  password
+FROM Student
+UNION ALL
+SELECT estrepID as userID,
+  username,
+  password
+FROM EstablishmentRepresentative
+UNION ALL
+Select adminID as userID,
+  username,
+  password
+FROM Admin;
 
 /* The following statements are for sample input used for Sprint 1 */
 INSERT INTO Student VALUES("student_test1","student1","student1@test.com","testpass","none","");
