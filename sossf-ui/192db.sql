@@ -91,19 +91,22 @@ CREATE TABLE Admin (
 );
 
 CREATE VIEW User AS
-SELECT studentID as userID,
+SELECT
   username,
-  password
+  password,
+  "student" AS userType
 FROM Student
 UNION ALL
-SELECT estrepID as userID,
+SELECT
   username,
-  password
+  password,
+  "estrep" AS userType
 FROM EstablishmentRepresentative
 UNION ALL
-Select adminID as userID,
+SELECT
   username,
-  password
+  password,
+  "admin" AS userType
 FROM Admin;
 
 /* The following statements are for sample input used for Sprint 1 */
