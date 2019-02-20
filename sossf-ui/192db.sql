@@ -32,7 +32,7 @@ Code History
 v1.0 - Jan 28, 2019 - Initial file with CREATE TABLE statements [Daine Daling]
 v1.1 - Jan 29, 2019 - Added INSERT INTO statements [Daine Daling]
 v1.2 - Feb 8, 2019 - Added comments and other code information
-v2.0 - Feb 20, 2019 - Added User View
+v2.0 - Feb 20, 2019 - Added User View, added ID columns for Student and EstablishmentRepresentative
 */
 
 /*
@@ -108,9 +108,9 @@ Select adminID as userID,
 FROM Admin;
 
 /* The following statements are for sample input used for Sprint 1 */
-INSERT INTO Student VALUES("student_test1","student1","student1@test.com","testpass","none","");
-INSERT INTO EstablishmentRepresentative VALUES("estrep_test1","estrep1","estrep1@test.com","testpass","");
-INSERT INTO EstablishmentRepresentative VALUES("estrep_test2","estrep2","estrep2@test.com","testpass","");
+INSERT INTO Student VALUES(1,"student_test1","student1","student1@test.com","testpass","none","");
+INSERT INTO EstablishmentRepresentative VALUES(1,"estrep_test1","estrep1","estrep1@test.com","testpass","");
+INSERT INTO EstablishmentRepresentative VALUES(2,"estrep_test2","estrep2","estrep2@test.com","testpass","");
 INSERT INTO Admin VALUES(1,"daine","dainedaling@gmail.com","password");
 INSERT INTO Establishment VALUES(1,"est_test1","est1","UP Diliman","printing, photocopy","8am to 5pm","09995551234","","1","estrep_test1");
 INSERT INTO Establishment VALUES(2,"est_test2","est2","UP Village","books","9am to 7pm","09154444321","","0",NULL);
