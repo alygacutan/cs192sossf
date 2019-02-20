@@ -77,7 +77,7 @@ CREATE TABLE Establishment (
   lastUpdate DATE,
   status SMALLINT,
   username VARCHAR(100),
-  PRIMARY KEY (establishmentID,name),
+  PRIMARY KEY (establishmentID,name)
 );
 
 /* Table for Admin users */
