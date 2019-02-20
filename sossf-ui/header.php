@@ -33,6 +33,7 @@ v1.0 - Feb 05, 2019 - Initial file - HTML [Aly Gacutan]
 v2.0 - Feb 06, 2019 - Revised HTML code, minor changes [Aly Gacutan]
 v3.0 - Feb 07, 2019 - Revised HTML code, minor changes [Kenneth Santos]
 v4.0 - Feb 08, 2019 - Revised HTML code [Aly Gacutan]
+v5.0 - Feb 20, 2019 - Cleaned code, Fixed Log In/Out Issues - PHP [Kenneth Santos]
 
 File Creation Date: Feb 05,2019
 Development Group: SOSSF Group 
@@ -55,7 +56,7 @@ Purpose: The HTML/PHP File for Header.
             <div class="dropdown-content">
               <a href="profile-page.php">Profile</a>
               <a href="requests.php">Update Requests</a>
-              <a href="index.php?logout='1'">Sign Out</a>
+              <a href="server.php?logout='1'">Sign Out</a>
             </div>
         </div>
       

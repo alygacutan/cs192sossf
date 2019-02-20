@@ -31,6 +31,8 @@ the AY 2018-2019
 Code History
 v1.0 - Feb 06, 2019 - Initial file - HTML [Aly Gacutan]
 v2.0 - Feb 07, 2019 - Revised PHP code [Kenneth Santos]
+v3.0 - Feb 20, 2019 - Cleaned code, Fixed Log In/Out Issues - PHP [Kenneth Santos]
+
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -39,27 +41,38 @@ Purpose: The PHP Server File for connecting php files.
  -->
  
 <?php
+
 	session_start();
 
-	// variable declaration
-	$username = "";
-	$email = "";
-	$errors = array();
-	$_SESSION['success'] = "";
-
-	// connect to database
 	$connection = mysqli_connect('localhost', 'root', '', 'sossf');
 
-	// user login
+	$username = "";
+	$errors = array();
+
+	//the user logged out
+	if(isset($_GET['logout'])) {
+		unset($_SESSION['username']);
+		session_destroy();
+		header("location: login.php");
+	}
+
+	//in need to go to login page?
+	if(!isset($_SESSION['username']) && basename(strtok($_SERVER['REQUEST_URI'],"?"))!="login.php") {
+		header("location: login.php?error=401");
+	} elseif(isset($_SESSION['username']) && basename(strtok($_SERVER['REQUEST_URI'],"?"))=="login.php") {
+		header('location: homepage.php');
+	}
+
 	if (isset($_POST['login_user'])) {
 		$username = mysqli_real_escape_string($connection, $_POST['username']);
 		$password = mysqli_real_escape_string($connection, $_POST['password']);
 
 		if (empty($username)) {
-			array_push($errors, "<p class='error'> Username is required </p>");
+			array_push($errors, "<p class='error'> Username is required! </p>");
 		}
+
 		if (empty($password)) {
-			array_push($errors, "<p class='error'>Password is required</p>");
+			array_push($errors, "<p class='error'>Password is required!  </p>");
 		}
 
 		if (count($errors) == 0) {
@@ -72,10 +85,9 @@ Purpose: The PHP Server File for connecting php files.
 			//if (mysqli_num_rows($results) == 1) {
 			if ($username == 'admin' and $password == 'root') {
 				$_SESSION['username'] = $username;
-				$_SESSION['success'] = "You are now logged in";
 				header('location: homepage.php');
 			} else {
-				array_push($errors, "Wrong username/password combination");
+				array_push($errors, "Wrong username/password combination!");
 			}
 		}
 	}
@@ -85,7 +97,7 @@ Purpose: The PHP Server File for connecting php files.
 	// REGISTER USER
 	if (isset($_POST['reg_user'])) {
 		// receive all input values from the form
-		$username = mysqli_real_escape_string($connection, $_POST['username']);
+		$username = mysqli_real_escape_string($connection, $_SESSION['username']);
 		$email = mysqli_real_escape_string($connection, $_POST['email']);
 		$password_1 = mysqli_real_escape_string($connection, $_POST['password_1']);
 		$password_2 = mysqli_real_escape_string($connection, $_POST['password_2']);
@@ -117,7 +129,7 @@ Purpose: The PHP Server File for connecting php files.
 
 	// LOGIN USER
 	if (isset($_POST['login_user'])) {
-		$username = mysqli_real_escape_string($connection, $_POST['username']);
+		$username = mysqli_real_escape_string($connection, $_SESSION['username']);
 		$password = mysqli_real_escape_string($connection, $_POST['password']);
 
 		if (empty($username)) {

@@ -43,8 +43,8 @@ Purpose: The HTML/PHP File for Add Establishment Function.
  -->
 
 <?php
-  include_once ('server.php');
-  include_once ('extras.php');
+  include('server.php');
+  include('extras.php');
 ?>
 
 <!DOCTYPE html>

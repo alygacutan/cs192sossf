@@ -31,6 +31,7 @@ the AY 2018-2019
 Code History
 v1.0 - Feb 06, 2019 - Initial file - PHP [Kenneth Santos]
 v2.0 - Feb 18, 2019 - Minor HTML/CSS revisions [Aly Gacutan]
+v3.0 - Feb 20, 2019 - Cleaned code, Fixed Log In/Out Issues - PHP [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -39,56 +40,53 @@ Purpose: The HTML/PHP File for Login Page.
  -->
 
 <?php
-include('server.php'); 
-// include_once ('header.php');
-include_once ('extras.php');
+include('server.php');
+include('extras.php');
 ?>
 
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>School and Office Supplies and Services Finder</title>
 </head>
-
-<body><!-- <div class="content"> -->
-	<div class="homepage"><img id="homepagebg" src="bg3.png">
+<body>
+	<div class="homepage">
+		<img id="homepagebg" src="bg3.png">
 		<center>
-	<div class="signup">
-	<form class="container" method="post" action="login.php">
+			<div class="signup">
+				<form class="container" method="post" action="login.php">
+					<div class="input-group">
+						<h2 style="font-size: 3vw">Log In</h2>
+					</div>
 
-		<div class="input-group">
-			<h2 style="font-size: 3vw">Log In</h2>
-		</div>
-		
-		<?php
-		include('errors.php');
-		?>
+					<?php
+					include('errors.php');
+					// foreach ($_POST['errors'] as $error)
+					// 	echo $error;
+					//echo basename(strtok($_SERVER['REQUEST_URI'],"?"));
+					?>
 
-		<div class="input-group">
-			<label>Username</label>
-			<input type="text" name="username" >
-		</div>
-
-		<div class="input-group">
-			<label>Password</label>
-			<input type="password" name="password">
-		</div>
-
-		<div class="input-group">
-			<button class="btn" type="submit" name="login_user" id="login">Login</button>
-			<script type="text/javascript">
-				var btn = document.getElementById('login');
-				btn.addEventListener('click', function() {
-					document.location.href = '<?php echo "user/homepage.php"; ?>';
-				});
-			</script>
-		</div>
-	</form>
+					<div class="input-group">
+						<label>Username</label>
+						<input type="text" name="username">
+					</div>
+					<div class="input-group">
+						<label>Password</label>
+						<input type="password" name="password">
+					</div>
+					<div class="input-group">
+						<button class="btn" type="submit" name="login_user" id="login">Login</button>
+						<script type="text/javascript">
+							var btn = document.getElementById('login');
+							btn.addEventListener('click', function() {
+								document.location.href = '<?php echo "user/homepage.php"; ?>';
+							});
+						</script>
+					</div>
+				</form>
+			</div>
+			<p> Create an account! <a href="register.php" style="color: #f99a2c">Sign up</a></p>
+		</center>
 	</div>
-	<br><br><p>Create an account! <a href="register.php" style="color: #f99a2c">Sign up</a></p>
-	</p>
-</div>
-<!-- </div> -->
 </body>
 </html>
