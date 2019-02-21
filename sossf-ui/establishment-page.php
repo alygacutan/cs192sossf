@@ -32,6 +32,7 @@ Code History
 v1.0 - Feb 06, 2019 - Initial file - HTML [Aly Gacutan]
 v1.1 - Feb 06, 2019 - Minor revisions [Aly Gacutan]
 v2.0 - Feb 07, 2019 - Added PHP code [Kenneth Santos]
+v3.0 - Feb 21, 2019 - Mininal changes - PHP [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -56,9 +57,9 @@ Purpose: The HTML/PHP File for Establishment Page.
 		<div class="content" style="height: 100%">
 			<?php
 
-				if(isset($_GET['est'])){$_SESSION['est'] = $_GET['est'];}	
+				if(isset($_GET['id'])){$_SESSION['id'] = $_GET['id'];}	
 				$sql="SELECT * FROM Establishment
-				WHERE establishmentID = {$_SESSION['est']}";
+				WHERE establishmentID = {$_SESSION['id']}";
 
 				$result=mysqli_query($connection,$sql)->fetch_assoc();
 

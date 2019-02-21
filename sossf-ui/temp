@@ -4,6 +4,8 @@ index.php
 errors.php
 server.php
 login.php
+viewall.php
+search.php
 
 
 login.php 75-80
@@ -11,4 +13,4 @@ add register page
 add profile page
 
 track send request
-remove status add-estab popup, all requests status 0
+remove status add-estab popup, all requests status

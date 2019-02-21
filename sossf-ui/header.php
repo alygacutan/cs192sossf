@@ -34,6 +34,7 @@ v2.0 - Feb 06, 2019 - Revised HTML code, minor changes [Aly Gacutan]
 v3.0 - Feb 07, 2019 - Revised HTML code, minor changes [Kenneth Santos]
 v4.0 - Feb 08, 2019 - Revised HTML code [Aly Gacutan]
 v5.0 - Feb 20, 2019 - Fixed Log In/Out Issues, Code Cleanup - PHP [Kenneth Santos]
+v6.0 - Feb 21, 2019 - Added search functionality using substring - PHP [Kenneth Santos]
 
 File Creation Date: Feb 05,2019
 Development Group: SOSSF Group 
@@ -46,18 +47,18 @@ Purpose: The HTML/PHP File for Header.
 		<a href="homepage.php" id="logo">
 			<i>School and Office </i>
 			<br>
-			<b> Supplies and Services Finder</b>
+			<b>Supplies and Services Finder</b>
 		</a>
 	</div>
 	<div class="nav">
 		<div class="searchbar">
-			<form action="search-results.php" method="post">
+			<form action="search.php" method="get">
 			<button type="submit">
 				<i class="fa fa-search">
 					
 				</i>
 			</button>
-			<input type="text" placeholder="Search..." name="input" value="">
+			<input type="text" placeholder="Search..." name="str" value="">
 			</form>
 		</div>
 		<div class="dropdown">
@@ -72,7 +73,7 @@ Purpose: The HTML/PHP File for Header.
 				<a href="server.php?logout=1">Sign Out</a>
 			</div>
 		</div>
-		<a href="viewall-admin.php" class="viewall">View All</a>
+		<a href="viewall.php" class="viewall">View All</a>
 	</div>
 </header>
 

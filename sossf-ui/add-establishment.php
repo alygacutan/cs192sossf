@@ -35,6 +35,7 @@ v2.0 - Feb 07, 2019 - Revised HTML code, minor changes [Aly Gacutan]
 v2.1 - Feb 07, 2019 - Revised PHP code [Kenneth Santos]
 v3.0 - Feb 08, 2019 - Revised HTML code, minor changes [Aly Gacutan]
 v3.1 - Feb 08, 2019 - Revised PHP code [Kenneth Santos]
+v4.0 - Feb 21, 2019 - Minimal changes - PHP [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -112,9 +113,10 @@ Purpose: The HTML/PHP File for Add Establishment Function.
 
     if( $new_name AND $new_location AND $new_contactNo AND $new_businessHours AND $new_status){
       $sql1 = "INSERT INTO Establishment(name, location, businessHours, services, tags, contactNo, status)
-      VALUES('$new_name','$new_location', '$new_businessHours','$new_services', '$new_tags', '$new_contactNo', $new_status)";
+      VALUES(\"$new_name\",\"$new_location\",\"$new_businessHours\",\"$new_services\",\"$new_tags\",\"$new_contactNo\", $new_status)";
       mysqli_query($connection,$sql1);
-      header("Location: viewall-admin.php");
+      //header("Location: viewall.php");
+
     }
   }
 ?>
@@ -204,7 +206,7 @@ Purpose: The HTML/PHP File for Add Establishment Function.
         <input type="submit" name="button" value="Create" class="btn">
 
        <div class="input-group">
-        <a href="viewall-admin.php" style="color: white;">Cancel</a>
+        <a href="viewall.php" style="color: white;">Cancel</a>
       </div>
 
     </form>

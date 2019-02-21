@@ -1,7 +1,7 @@
 <!--
 MIT License
 
-Copyright (c) 2019 Aly Gacutan, Kenneth Santos
+Copyright (c) 2019 Kenneth Santos
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,51 +27,33 @@ Science, College of Engineering, University of the Philippines, Diliman for
 the AY 2018-2019
  -->
 
- <!-- 
+<!-- 
 Code History
-v1.0 - Feb 06, 2019 - Initial file - HTML [Aly Gacutan]
-v2.0 - Feb 07, 2019 - Revised HTML code, minor changes [Aly Gacutan]
-v2.1 - Feb 07, 2019 - Added PHP code [Kenneth Santos]
-v2.2 - Feb 07, 2019 - Revised HTML code [Aly Gacutan]
-v3.0 - Feb 08, 2019 - Revised PHP code [Kenneth Santos]
-v3.1 - Feb 08, 2019 - Revised HTML code, minor changes [Aly Gacutan]
+v1.0 - Feb 21, 2019 - Initial file - PHP [Kenneth Santos]
 
-
-File Creation Date: Feb 06,2019
+File Creation Date: Feb 21, 2019
 Development Group: SOSSF Group 
 Client Group: N/A
-Purpose: The HTML/PHP File for Search Page.
+Purpose: The PHP File for Delete Establishment Function.
  -->
 
 <?php
-  include_once ('server.php');
-  include_once ('header.php');
-  include_once ('extras.php');
-  include_once ('add-establishment.php') 
+	include('server.php');
+
+	if(isset($_GET['id'])){
+		$id = (int)$_GET['id'];
+		$query = "DELETE FROM Establishment WHERE establishmentID={$id}";
+	} else {
+		echo 'No id set';
+	}
+
+	$result = mysqli_query($connection,$query);
+
+	if($result){
+		$_SESSION['success_message'] = 'User data deleted successfully';
+		header('Location: viewall.php');
+	}else{
+		$_SESSION['error_message'] = 'User data couldn\'t be deleted';
+		header('Location: viewall.php');
+	} 
 ?>
-
-<!DOCTYPE html>
-<html>
-
-  <head>
-  </head>
-
-  <body>    
-    <div class="content">
-    <h1>Search Results:</h1>
-
-    <!-- ADD ESTABLISHMENT POPUP WINDOW -->
-    <!-- <button id="myBtn"> ADD ESTABLISHMENT </button> -->
-    
-    <h2>WORK IN PROGRESS</h2>
-    
-    </div>
-  </body>
-
-<script
-type="text/javascript" src="add-establishment.js">
-</script>
-
-</html>
-
-<?php $connection->close(); ?>
