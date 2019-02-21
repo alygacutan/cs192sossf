@@ -31,7 +31,7 @@ the AY 2018-2019
 Code History
 v1.0 - Feb 06, 2019 - Initial file - PHP [Kenneth Santos]
 v2.0 - Feb 18, 2019 - Minor HTML/CSS revisions [Aly Gacutan]
-v3.0 - Feb 20, 2019 - Cleaned code, Fixed Log In/Out Issues - PHP [Kenneth Santos]
+v3.0 - Feb 20, 2019 - Fixed Log In/Out Issues, Code Cleanup - PHP [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -40,14 +40,14 @@ Purpose: The HTML/PHP File for Login Page.
  -->
 
 <?php
-include('server.php');
-include('extras.php');
+	include('server.php');
+	include('extras.php');
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>School and Office Supplies and Services Finder</title>
+	<title>Login | School and Office Supplies and Services Finder</title>
 </head>
 <body>
 	<div class="homepage">
@@ -60,10 +60,11 @@ include('extras.php');
 					</div>
 
 					<?php
-					include('errors.php');
-					// foreach ($_POST['errors'] as $error)
-					// 	echo $error;
-					//echo basename(strtok($_SERVER['REQUEST_URI'],"?"));
+						if(isset($_GET['error'])) {
+							if($_GET['error']==401)
+								array_push($errors, "<p class='error'> You must log in to continue! </p>");
+						}
+						include('errors.php');
 					?>
 
 					<div class="input-group">

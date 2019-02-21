@@ -32,8 +32,7 @@ Code History
 v1.0 - Jan 28, 2019 - Initial file with CREATE TABLE statements [Daine Daling]
 v1.1 - Jan 29, 2019 - Added INSERT INTO statements [Daine Daling]
 v1.2 - Feb 8, 2019 - Added comments and other code information
-v2.0 - Feb 20, 2019 - Added User View, added ID columns for Student and EstablishmentRepresentative
-v2.1 - Feb 21, 2019 - Added new entries, modified Establishment table (removed foreign key constraint)
+v2.0 - Feb 20, 2019 - Added User View
 */
 
 /*
@@ -50,8 +49,9 @@ CREATE TABLE Student (
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
+  affiliation VARCHAR(100),
   creationDate DATE,
-  PRIMARY KEY (studentID,username)
+  PRIMARY KEY (username,userID)
 );
 
 /* Table for registered Establishment Representative users */
@@ -62,7 +62,7 @@ CREATE TABLE EstablishmentRepresentative (
   email VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
   creationDate DATE,
-  PRIMARY KEY (estrepID,username)
+  PRIMARY KEY (username,estrepID)
 );
 
 /* Table for Establishments */
@@ -77,7 +77,8 @@ CREATE TABLE Establishment (
   lastUpdate DATE,
   status SMALLINT,
   username VARCHAR(100),
-  PRIMARY KEY (establishmentID,name)
+  PRIMARY KEY (establishmentID,name),
+  FOREIGN KEY (username) REFERENCES EstablishmentRepresentative(username)
 );
 
 /* Table for Admin users */
@@ -87,35 +88,29 @@ CREATE TABLE Admin (
   name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
   password VARCHAR(100) NOT NULL,
-  PRIMARY KEY (adminID,username)
+  PRIMARY KEY (adminID, username)
 );
 
 CREATE VIEW User AS
-SELECT
+SELECT studentID as userID,
   username,
-  password,
-  "student" AS userType
+  password
 FROM Student
 UNION ALL
-SELECT
+SELECT estrepID as userID,
   username,
-  password,
-  "estrep" AS userType
+  password
 FROM EstablishmentRepresentative
 UNION ALL
-SELECT
+Select adminID as userID,
   username,
-  password,
-  "admin" AS userType
+  password
 FROM Admin;
 
 /* The following statements are for sample input used for Sprint 1 */
-INSERT INTO Student VALUES(1,"ddaling","Daine Daling","ddaling@up.edu.ph","testpass","");
-INSERT INTO EstablishmentRepresentative VALUES(1,"ksantos","Kenneth Santos","kenneth@up.edu.com","testpass","");
-INSERT INTO Admin VALUES(1,"agacutan","Aly Gacutan","alyg@up.edu.ph","password");
-INSERT INTO Establishment VALUES(1,"Daine Store","NIGS, UP Diliman","Daine is cute","Grocery","24 hours","09454685149","",0,"ddaling");
-INSERT INTO Establishment VALUES(2,"Kenneth Store","DCS, UP Diliman","Kenneth Store offers affordable food","Restaurant","9am to 7pm","09154444321","",0,"ksantos");
-INSERT INTO Establishment VALUES(3,"Aly Store","Area 2, UP Diliman","Aly Store offers affordable printing and photocopy","printing, photocopy","8am to 5pm","09995551234","",0,"agacutan");
-INSERT INTO EstablishmentRepresentative VALUES(2,"wmtan","KuyaWil","wmtan@dcs.upd.edu.ph","kuyawil","");
-INSERT INTO Establishment VALUES(4,"Wilson Pharmacy","Krus na Ligas, Diliman","Alternative medicine","Drugstore","24 hours","09166611666","",1,"wmtan");
-INSERT INTO Establishment VALUES(5,"Kuya Wil Supplies","Krus na Ligas, Diliman","Affordable school supplies","School Supplies","7am to 9pm","09166611666","",1,"wmtan");
+INSERT INTO Student VALUES("student_test1","student1","student1@test.com","testpass","none","");
+INSERT INTO EstablishmentRepresentative VALUES("estrep_test1","estrep1","estrep1@test.com","testpass","");
+INSERT INTO EstablishmentRepresentative VALUES("estrep_test2","estrep2","estrep2@test.com","testpass","");
+INSERT INTO Admin VALUES(1,"daine","dainedaling@gmail.com","password");
+INSERT INTO Establishment VALUES(1,"est_test1","est1","UP Diliman","printing, photocopy","8am to 5pm","09995551234","","1","estrep_test1");
+INSERT INTO Establishment VALUES(2,"est_test2","est2","UP Village","books","9am to 7pm","09154444321","","0",NULL);
