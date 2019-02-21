@@ -62,7 +62,8 @@ Purpose: The HTML/PHP File for Home Page.
 			<form action="search-results.php" method="post">
 				<input type="text" placeholder="Name" name="name" value="">
 				<input type="text" placeholder="Location" name="location" value="">
-		</div><br><br>
+		</div>
+		<button class="btn2" style="color: black; background-color:#fff;"> Search </button><br><br>
 		<div class="tags-icons">
 			<h2 style="color: #000; font-weight: normal;">Search by Type: </h2>
 			<div class="icon-container">
