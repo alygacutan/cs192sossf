@@ -34,6 +34,7 @@ v2.0 - Feb 07, 2019 - Added PHP code [Kenneth Santos]
 v2.1 - Feb 07, 2019 - Revised HTML code, minor changes [Aly Gacutan]
 v3.0 - Feb 10, 2019 - Added tag icons [Aly Gacutan]
 v4.0 - Feb 20, 2019 - Added seach functionality using tags [Kenneth Santos]
+v5.0 - Feb 21, 2019 - Added seach functionality using name and location [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -59,9 +60,9 @@ Purpose: The HTML/PHP File for Home Page.
 		<center>
 			<h2 style="font-size: 5vw">Welcome!</h2>
 		<div class="searchbarhomepage">
-			<form action="search-results.php" method="post">
+			<form action="search.php" method="get">
 				<input type="text" placeholder="Name" name="name" value="">
-				<input type="text" placeholder="Location" name="location" value="">
+				<input type="text" placeholder="Location" name="loc" value="">
 		</div>
 		<button class="btn2" style="color: black; background-color:#fff;"> Search </button><br><br>
 		<div class="tags-icons">

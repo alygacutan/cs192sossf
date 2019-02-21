@@ -1,11 +1,11 @@
 add-establishment.js
+errors.php
 extras.php
 index.php
-errors.php
-server.php
 login.php
-viewall.php
-search.php
+search.php  ------ delete
+server.php. ------ register
+viewall.php ------ delete
 
 
 login.php 75-80
