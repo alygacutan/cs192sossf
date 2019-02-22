@@ -35,6 +35,7 @@ v3.0 - Feb 21, 2019 - Added search results by tags - PHP [Kenneth Santos]
 v3.1 - Feb 21, 2019 - Added search results by substring - PHP [Kenneth Santos]
 v3.2 - Feb 21, 2019 - Added catch when no results found - PHP [Kenneth Santos]
 V4.0 - Feb 22, 2019 - Added search results by name and location - PHP [Kenneth Santos]
+v4.1 - Feb 22, 2019 - Minor fixes - PHP [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -77,6 +78,8 @@ Purpose: The HTML/PHP File for Search Page.
 										<td>{$row["tags"]}</td>
 										<td><a href=''>Edit</a>, <a href='delete-establishment.php?id={$row["establishmentID"]}'>Delete</a></td></tr>";
 							}
+						} else {
+							echo "<p color='red'>NO RESULTS FOUND.</p>";
 						}
 					} elseif(isset($_GET['tag'])) {
 						$tag = $_GET['tag'];
@@ -89,11 +92,13 @@ Purpose: The HTML/PHP File for Search Page.
 										<td>{$row["tags"]}</td>
 										<td><a href=''>Edit</a>, <a href='delete-establishment.php?id={$row["establishmentID"]}'>Delete</a></td></tr>";
 							}
+						} else {
+							echo "<p color='red'>NO RESULTS FOUND.</p>";
 						}
 					} elseif(isset($_GET['name']) && isset($_GET['loc'])) {
 						$name = $_GET['name'];
 						$loc = $_GET['loc'];
-						$query = "SELECT * FROM Establishment WHERE status=1 AND (name LIKE '%{$name}%' OR location LIKE '%{$loc}%')";
+						$query = "SELECT * FROM Establishment WHERE status=1 AND (name LIKE '%{$name}%' AND location LIKE '%{$loc}%')";
 						$result = mysqli_query($connection, $query);
 						if(mysqli_num_rows($result)>0) {
 							while($row = mysqli_fetch_assoc($result)) {
@@ -102,6 +107,8 @@ Purpose: The HTML/PHP File for Search Page.
 										<td>{$row["tags"]}</td>
 										<td><a href=''>Edit</a>, <a href='delete-establishment.php?id={$row["establishmentID"]}'>Delete</a></td></tr>";
 							}
+						} else {
+							echo "<p color='red'>NO RESULTS FOUND.</p>";
 						}
 					} else {
 						echo "<p color='red'>NO RESULTS FOUND.</p>";
