@@ -548,7 +548,7 @@ textarea{
 	background-color: #f9e770;
 	border: none;
 	border-radius: 1rem !important;
-	width: auto;
+	width: auto !important;
 	font-family:  'Montserrat', sans-serif;
 	text-transform: uppercase;
 }
@@ -560,6 +560,7 @@ textarea{
 }
 #login{
 	background-color: #f99a2c;
+	width: auto;
 	float: left;
 	left: 40%;
 }
