@@ -37,6 +37,7 @@ v3.0 - Feb 08, 2019 - Revised HTML code, minor changes [Aly Gacutan]
 v3.1 - Feb 08, 2019 - Revised PHP code [Kenneth Santos]
 v4.0 - Feb 17, 2019 - Revised HTML code [Aly Gacutan]
 V5.0 - Feb 20, 2019 - Added Delete Functionality [Kenneth Santos]
+v6.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -45,10 +46,11 @@ Purpose: The HTML/PHP File for View All Page.
  -->
 
 <?php
-	include('server.php');
-	include('header.php');
-	include('extras.php');
-	include('add-establishment.php');
+	include("../server.php");
+	include("../extras.php");
+	include("header.php");
+	include("add.php");
+	include("print.php")
 ?>
 
 <!DOCTYPE html>
@@ -73,11 +75,8 @@ Purpose: The HTML/PHP File for View All Page.
 					$query = "SELECT * FROM Establishment WHERE status=1";
 					$result = mysqli_query($connection, $query);
 					if(mysqli_num_rows($result)>0) {
-						while($row = mysqli_fetch_assoc($result)) {
-							echo "<tr>
-									<td><a href='establishment-page.php?id={$row["establishmentID"]}'>{$row["name"]}</a></td>
-									<td>{$row["tags"]}</td>
-									<td><a href=''>Edit</a>, <a href='delete-establishment.php?id={$row["establishmentID"]}'>Delete</a></td></tr>";
+						while($record = mysqli_fetch_assoc($result)) {
+							view($record);
 						}
 					} else {
 							echo "<p color='red'>No results found.</p>";

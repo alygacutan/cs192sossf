@@ -1,7 +1,7 @@
 <!--
 MIT License
 
-Copyright (c) 2019 Kenneth Santos
+Copyright (c) 2019 Aly Gacutan, Kenneth Santos
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -29,25 +29,28 @@ the AY 2018-2019
 
  <!-- 
 Code History
-v1.0 - Feb 06, 2019 - Initial file - HTML [Kenneth Santos]
-v3.0 - Feb 20, 2019 - Cleaned code, Fixed Log In/Out Issues - PHP [Kenneth Santos]
+v1.0 - Feb 06, 2019 - Initial file - HTML [Aly Gacutan]
+v2.0 - Feb 07, 2019 - Minor revisions [Aly Gacutan]
+v3.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
 Client Group: N/A
-Purpose: The PHP Index File.
+Purpose: The HTML/Script File for Extra Styling.
  -->
+ 
+<!-- PLUGINS / EXTENSIONS /DONWLOADS to make the website more "suited" to different users-->
 
-<?php
+<base target="_top">
 
-	//initial case
-	if (!isset($_SESSION['username'])) {
-		header('location: login.php');
-	}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	//the user already logged in, redirect to homepage
-	if(isset($_SESSION['username'])){
-		header("location: homepage.php");
-	}
-?>
+<link rel="stylesheet" type="text/css" href="/cs192sossf/stylesheet.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100|Montserrat:400,700|Maven+Pro|Nunito+Sans|Changa+One|Questrial" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
+<script type="text/javascript" src="add-establishment.js">
+
+</script>

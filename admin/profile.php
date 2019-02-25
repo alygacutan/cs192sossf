@@ -31,6 +31,7 @@ the AY 2018-2019
 Code History
 v1.0 - Feb 08, 2019 - Initial file - HTML [Aly Gacutan]
 v1.1 - Feb 08, 2019 - Added PHP code [Kenneth Santos]
+v2.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
 File Creation Date: Feb 08,2019
 Development Group: SOSSF Group 
@@ -39,10 +40,10 @@ Purpose: The HTML/PHP File for Profile Page.
  -->
 
 <?php
-  include_once ('server.php');
+  include_once ('../server.php');
+  include_once ('../extras.php');
   include_once ('header.php');
-  include_once ('extras.php');
-  include_once ('add-establishment.php');
+  include_once ('add.php');
 ?>
 
 <!DOCTYPE html>

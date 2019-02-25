@@ -35,6 +35,7 @@ v3.0 - Feb 07, 2019 - Revised HTML code, minor changes [Kenneth Santos]
 v4.0 - Feb 08, 2019 - Revised HTML code [Aly Gacutan]
 v5.0 - Feb 20, 2019 - Fixed Log In/Out Issues, Code Cleanup - PHP [Kenneth Santos]
 v6.0 - Feb 21, 2019 - Added search functionality using substring - PHP [Kenneth Santos]
+v7.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
 File Creation Date: Feb 05,2019
 Development Group: SOSSF Group 
@@ -68,9 +69,9 @@ Purpose: The HTML/PHP File for Header.
 				</a>
 			</button>
 			<div class="dropdown-content">
-				<a href="profile-page.php">Profile</a>
+				<a href="profile.php">Profile</a>
 				<a href="requests.php">Update Requests</a>
-				<a href="server.php?logout=1">Sign Out</a>
+				<a href="../server.php?logout=1">Sign Out</a>
 			</div>
 		</div>
 		<a href="viewall.php" class="viewall">View All</a>

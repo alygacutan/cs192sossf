@@ -36,6 +36,7 @@ v3.1 - Feb 21, 2019 - Added search results by substring - PHP [Kenneth Santos]
 v3.2 - Feb 21, 2019 - Added catch when no results found - PHP [Kenneth Santos]
 V4.0 - Feb 22, 2019 - Added search results by name and location - PHP [Kenneth Santos]
 v4.1 - Feb 22, 2019 - Minor fixes - PHP [Kenneth Santos]
+v5.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -44,9 +45,10 @@ Purpose: The HTML/PHP File for Search Page.
  -->
 
 <?php
-	include('server.php');
+	include('../server.php');
+	include('../extras.php');
 	include('header.php');
-	include('extras.php');
+	include('print.php');
 ?>
 
 <!DOCTYPE html>
@@ -72,11 +74,8 @@ Purpose: The HTML/PHP File for Search Page.
 						$query = "SELECT * FROM Establishment WHERE status=1 AND (name LIKE \"%{$str}%\" OR location LIKE \"%{$str}%\" OR services LIKE \"%{$str}%\" OR tags LIKE \"%{$str}%\")";
 						$result = mysqli_query($connection, $query);
 						if(mysqli_num_rows($result)>0) {
-							while($row = mysqli_fetch_assoc($result)) {
-								echo "<tr>
-										<td><a href='establishment-page.php?id={$row["establishmentID"]}'>{$row["name"]}</a></td>
-										<td>{$row["tags"]}</td>
-										<td><a href=''>Edit</a>, <a href='delete-establishment.php?id={$row["establishmentID"]}'>Delete</a></td></tr>";
+							while($record = mysqli_fetch_assoc($result)) {
+								view($record);
 							}
 						} else {
 							echo "<p color='red'>NO RESULTS FOUND.</p>";
@@ -86,11 +85,8 @@ Purpose: The HTML/PHP File for Search Page.
 						$query = "SELECT * FROM Establishment WHERE status=1 AND tags LIKE '%{$tag}%'";
 						$result = mysqli_query($connection, $query);
 						if(mysqli_num_rows($result)>0) {
-							while($row = mysqli_fetch_assoc($result)) {
-								echo "<tr>
-										<td><a href='establishment-page.php?id={$row["establishmentID"]}'>{$row["name"]}</a></td>
-										<td>{$row["tags"]}</td>
-										<td><a href=''>Edit</a>, <a href='delete-establishment.php?id={$row["establishmentID"]}'>Delete</a></td></tr>";
+							while($record = mysqli_fetch_assoc($result)) {
+								view($record);
 							}
 						} else {
 							echo "<p color='red'>NO RESULTS FOUND.</p>";
@@ -101,11 +97,8 @@ Purpose: The HTML/PHP File for Search Page.
 						$query = "SELECT * FROM Establishment WHERE status=1 AND (name LIKE '%{$name}%' AND location LIKE '%{$loc}%')";
 						$result = mysqli_query($connection, $query);
 						if(mysqli_num_rows($result)>0) {
-							while($row = mysqli_fetch_assoc($result)) {
-								echo "<tr>
-										<td><a href='establishment-page.php?id={$row["establishmentID"]}'>{$row["name"]}</a></td>
-										<td>{$row["tags"]}</td>
-										<td><a href=''>Edit</a>, <a href='delete-establishment.php?id={$row["establishmentID"]}'>Delete</a></td></tr>";
+							while($record = mysqli_fetch_assoc($result)) {
+								view($record);
 							}
 						} else {
 							echo "<p color='red'>NO RESULTS FOUND.</p>";

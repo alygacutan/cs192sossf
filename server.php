@@ -33,6 +33,7 @@ v1.0 - Feb 06, 2019 - Initial file - HTML [Aly Gacutan]
 v2.0 - Feb 07, 2019 - Revised PHP code [Kenneth Santos]
 v3.0 - Feb 20, 2019 - Fixed Log In/Out Issues, Code Cleanup - PHP [Kenneth Santos]
 v3.1 - Feb 20, 2019 - Connected Users Log In/Out to Database - PHP [Kenneth Santos]
+v4.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
 
 File Creation Date: Feb 06,2019
@@ -45,29 +46,29 @@ Purpose: The PHP Server File for connecting php files.
 
 	session_start();
 
-	$connection = mysqli_connect('localhost', 'root', '', 'sossf');
+	$connection = mysqli_connect("localhost", "root", "", "sossf");
 
 	$username = "";
 	$errors = array();
 
 	//in need to go to login page?
-	if(!isset($_SESSION['username']) && basename(strtok($_SERVER['REQUEST_URI'],"?"))!="login.php") {
+	if(!isset($_SESSION["username"]) && basename(strtok($_SERVER["REQUEST_URI"],"?"))!="login.php") {
 		header("location: login.php?error=401");
-	} elseif(isset($_SESSION['username']) && basename(strtok($_SERVER['REQUEST_URI'],"?"))=="login.php") {
-		header('location: homepage.php');
+	} elseif(isset($_SESSION["username"]) && basename(strtok($_SERVER["REQUEST_URI"],"?"))=="login.php") {
+		header("location: homepage.php");
 	}
 
 	//the user logged out
-	if(isset($_GET['logout'])) {
-		unset($_SESSION['username']);
+	if(isset($_GET["logout"])) {
+		unset($_SESSION["username"]);
 		session_destroy();
 		header("location: login.php");
 	}
 
 	//user login
-	if (isset($_POST['login_user'])) {
-		$username = mysqli_real_escape_string($connection, $_POST['username']);
-		$password = mysqli_real_escape_string($connection, $_POST['password']);
+	if (isset($_POST["login_user"])) {
+		$username = mysqli_real_escape_string($connection, $_POST["username"]);
+		$password = mysqli_real_escape_string($connection, $_POST["password"]);
 
 		if (empty($username)) { array_push($errors, "<p class='error'> Username is required! </p>"); }
 		if (empty($password)) { array_push($errors, "<p class='error'> Password is required! </p>"); }
@@ -76,10 +77,13 @@ Purpose: The PHP Server File for connecting php files.
 			//password encryption
 			//$password = md5($password);
 			$query = "SELECT * FROM User WHERE username='$username' AND password='$password'";
+			$result = mysqli_query($connection, $query);
 
-			if (mysqli_num_rows(mysqli_query($connection, $query))==1) {
-				$_SESSION['username'] = $username;
-				header('location: homepage.php');
+			if (mysqli_num_rows($result)==1) {
+				$_SESSION["username"] = $username;
+				$account = mysqli_fetch_assoc($result);
+				$userType = $account["userType"];
+				header("location: {$account["userType"]}/homepage.php");
 			} else {
 				array_push($errors, "<p class='error'> Wrong username/password combination! </p>");
 			}
@@ -88,12 +92,12 @@ Purpose: The PHP Server File for connecting php files.
 
 	/*
 	// REGISTER USER
-	if (isset($_POST['reg_user'])) {
+	if (isset($_POST["reg_user"])) {
 		// receive all input values from the form
-		$username = mysqli_real_escape_string($connection, $_SESSION['username']);
-		$email = mysqli_real_escape_string($connection, $_POST['email']);
-		$password_1 = mysqli_real_escape_string($connection, $_POST['password_1']);
-		$password_2 = mysqli_real_escape_string($connection, $_POST['password_2']);
+		$username = mysqli_real_escape_string($connection, $_SESSION["username"]);
+		$email = mysqli_real_escape_string($connection, $_POST["email"]);
+		$password_1 = mysqli_real_escape_string($connection, $_POST["password_1"]);
+		$password_2 = mysqli_real_escape_string($connection, $_POST["password_2"]);
 
 		// form validation: ensure that the form is correctly filled
 		if (empty($username)) { array_push($errors, "Username is required"); }
@@ -108,12 +112,12 @@ Purpose: The PHP Server File for connecting php files.
 		if (count($errors) == 0) {
 			$password = md5($password_1);//encrypt the password before saving in the database
 			$query = "INSERT INTO users (username, email, password)
-					  VALUES('$username', '$email', '$password')";
+					  VALUES("$username", "$email", "$password")";
 			mysqli_query($connection, $query);
 
-			$_SESSION['username'] = $username;
-			$_SESSION['success'] = "You are now logged in";
-			header('location: index.php');
+			$_SESSION["username"] = $username;
+			$_SESSION["success"] = "You are now logged in";
+			header("location: index.php");
 		}
 
 	}

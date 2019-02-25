@@ -33,6 +33,7 @@ v1.0 - Feb 06, 2019 - Initial file - HTML [Aly Gacutan]
 v1.1 - Feb 06, 2019 - Minor revisions [Aly Gacutan]
 v2.0 - Feb 07, 2019 - Added PHP code [Kenneth Santos]
 v3.0 - Feb 21, 2019 - Mininal changes - PHP [Kenneth Santos]
+v4.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -41,10 +42,9 @@ Purpose: The HTML/PHP File for Establishment Page.
  -->
  
 <?php
-	include_once ('server.php');
-	include_once ('header.php');
-	include_once ('extras.php');
-	include_once ('add-establishment.php');
+	include_once ("../server.php");
+	include_once ("../extras.php");
+	include_once ("header.php");
 ?>
 
 <!DOCTYPE html>
@@ -57,9 +57,9 @@ Purpose: The HTML/PHP File for Establishment Page.
 		<div class="content" style="height: 100%">
 			<?php
 
-				if(isset($_GET['id'])){$_SESSION['id'] = $_GET['id'];}	
+				if(isset($_GET["id"])){$_SESSION["id"] = $_GET["id"];}	
 				$sql="SELECT * FROM Establishment
-				WHERE establishmentID = {$_SESSION['id']}";
+				WHERE establishmentID = {$_SESSION["id"]}";
 
 				$result=mysqli_query($connection,$sql)->fetch_assoc();
 
@@ -68,11 +68,11 @@ Purpose: The HTML/PHP File for Establishment Page.
 			<div class="info">
 
 				<?php
-				echo "<h3>".$result['name']."</h3>";
-				echo "<p>".$result['location']."</p>";
-				echo "<p>".$result['contactNo']."</p>";
-				echo "<p>".$result['tags']."</p>";
-				echo "<p>".$result['businessHours']."</p>"
+				echo "<h3>".$result["name"]."</h3>";
+				echo "<p>".$result["location"]."</p>";
+				echo "<p>".$result["contactNo"]."</p>";
+				echo "<p>".$result["tags"]."</p>";
+				echo "<p>".$result["businessHours"]."</p>"
 				?>
 
 				<h2>Services:</h2>
@@ -91,7 +91,7 @@ Purpose: The HTML/PHP File for Establishment Page.
 					<button class="myBtn" style="margin-right:40px;float: right;">Suggest an Edit</button>
 				<br><br>
 				<div class="map">coming soon...</div><br>
-				<label style="font-family: 'Montserrat', sans-serif; font-weight:normal; text-transform: uppercase; color: #f99a2c; font-size:15px">
+				<label style="font-family: "Montserrat", sans-serif; font-weight:normal; text-transform: uppercase; color: #f99a2c; font-size:15px">
 					Reviews and Comments</label><br>
 				<div class="reviews">coming soon...</div>
 			</center></div>

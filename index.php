@@ -1,7 +1,7 @@
 <!--
 MIT License
 
-Copyright (c) 2019 Aly Gacutan, Kenneth Santos
+Copyright (c) 2019 Kenneth Santos
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -29,21 +29,26 @@ the AY 2018-2019
 
  <!-- 
 Code History
-v1.0 - Feb 05, 2019 - Initial file - PHP [Aly Gacutan]
-v2.0 - Feb 06, 2019 - Revised PHP code [Kenneth Santos]
-v3.0 - Feb 20, 2019 - Minimal changes in the code, code cleanup [Kenneth Santos]
+v1.0 - Feb 06, 2019 - Initial file - HTML [Kenneth Santos]
+v2.0 - Feb 20, 2019 - Cleaned code, Fixed Log In/Out Issues - PHP [Kenneth Santos]
+v3.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
-File Creation Date: Feb 05,2019
+File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
 Client Group: N/A
-Purpose: The HTML/PHP File for error handling.
+Purpose: The PHP Index File.
  -->
 
-<div class="error">
-	<?php
-		if(count($errors)>0):
-			foreach ($errors as $error)
-				echo $error;
-		endif;
-	?>
-</div>
+<?php
+
+	//initial case
+	if (!isset($_SESSION["username"])) {
+		header("location: login.php");
+	}
+
+	//the user already logged in, redirect to homepage
+	if(isset($_SESSION["username"])){
+		header("location: homepage.php");
+	}
+?>
+

@@ -1,7 +1,7 @@
 <!--
 MIT License
 
-Copyright (c) 2019 Aly Gacutan
+Copyright (c) 2019 Kenneth Santos
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,29 +27,34 @@ Science, College of Engineering, University of the Philippines, Diliman for
 the AY 2018-2019
  -->
 
- <!-- 
+<!-- 
 Code History
-v1.0 - Feb 06, 2019 - Initial file - HTML [Aly Gacutan]
-v2.0 - Feb 07, 2019 - Minor revisions [Aly Gacutan]
+v1.0 - Feb 21, 2019 - Initial file - PHP [Kenneth Santos]
+v2.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
-File Creation Date: Feb 06,2019
+File Creation Date: Feb 21, 2019
 Development Group: SOSSF Group 
 Client Group: N/A
-Purpose: The HTML/Script File for Extra Styling.
+Purpose: The PHP File for Delete Establishment Function.
  -->
- 
-<!-- PLUGINS / EXTENSIONS /DONWLOADS to make the website more "suited" to different users-->
 
-<base target="_top">
+<?php
+	include('../server.php');
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	if(isset($_GET['id'])){
+		$id = (int)$_GET['id'];
+		$query = "DELETE FROM Establishment WHERE establishmentID={$id}";
+	} else {
+		echo 'No id set';
+	}
 
-<link rel="stylesheet" type="text/css" href="sossf-stylesheet.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Roboto:100|Montserrat:400,700|Maven+Pro|Nunito+Sans|Changa+One|Questrial" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+	$result = mysqli_query($connection,$query);
 
-<script type="text/javascript" src="add-establishment.js">
-
-</script>
+	if($result){
+		$_SESSION['success_message'] = 'User data deleted successfully';
+		header('Location: viewall.php');
+	}else{
+		$_SESSION['error_message'] = 'User data couldn\'t be deleted';
+		header('Location: viewall.php');
+	} 
+?>

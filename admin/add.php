@@ -36,6 +36,7 @@ v2.1 - Feb 07, 2019 - Revised PHP code [Kenneth Santos]
 v3.0 - Feb 08, 2019 - Revised HTML code, minor changes [Aly Gacutan]
 v3.1 - Feb 08, 2019 - Revised PHP code [Kenneth Santos]
 v4.0 - Feb 21, 2019 - Minimal changes - PHP [Kenneth Santos]
+v5.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -44,8 +45,8 @@ Purpose: The HTML/PHP File for Add Establishment Function.
  -->
 
 <?php
-  include('server.php');
-  include('extras.php');
+  include("../server.php");
+  include("../extras.php");
 ?>
 
 <!DOCTYPE html>
@@ -127,7 +128,7 @@ Purpose: The HTML/PHP File for Add Establishment Function.
     <span class="close">&times;</span>
     <form class="container" method="POST">
 
-      <?php include('errors.php'); ?>
+      <?php include("../errors.php"); ?>
 
       <div class="input-group">
         <h2>ADD ESTABLISHMENT</h2>
@@ -187,19 +188,19 @@ Purpose: The HTML/PHP File for Add Establishment Function.
           if ($result->num_rows > 0) {
           // output data of each row
               while($row = $result->fetch_assoc()) {
-                  echo "<input type='checkbox' name='new_tags[]' value='".$row['tags']."'><a>".$row['tags']."</a><br>";
+                  echo "<input type="checkbox" name="new_tags[]" value="".$row["tags"].""><a>".$row["tags"]."</a><br>";
               }
           } */
         ?>
-         <input type='checkbox' name='Printing' value="Printing"><a>Printing</a><br>
-         <input type='checkbox' name='Internet' value="Internet"><a>Internet</a><br>
-         <input type='checkbox' name='CleaningRepair' value="CleaningRepair"><a>Cleaning & Repair</a><br>
-         <input type='checkbox' name='Bookstore' value="Bookstore"><a>Bookstore</a><br>
-         <input type='checkbox' name='Drugstore' value="Drugstore"><a>Drugstore</a><br>
-         <input type='checkbox' name='Grocery' value="Grocery"><a>Grocery</a><br>
-         <input type='checkbox' name='Binding' value="Binding"><a>Binding</a><br>
-         <input type='checkbox' name='Salon' value="Salon"><a>Salon</a><br>
-         <input type='checkbox' name='Photocopy' value="Photocopy"><a>Photocopy</a><br> 
+         <input type="checkbox" name="Printing" value="Printing"><a>Printing</a><br>
+         <input type="checkbox" name="Internet" value="Internet"><a>Internet</a><br>
+         <input type="checkbox" name="CleaningRepair" value="CleaningRepair"><a>Cleaning & Repair</a><br>
+         <input type="checkbox" name="Bookstore" value="Bookstore"><a>Bookstore</a><br>
+         <input type="checkbox" name="Drugstore" value="Drugstore"><a>Drugstore</a><br>
+         <input type="checkbox" name="Grocery" value="Grocery"><a>Grocery</a><br>
+         <input type="checkbox" name="Binding" value="Binding"><a>Binding</a><br>
+         <input type="checkbox" name="Salon" value="Salon"><a>Salon</a><br>
+         <input type="checkbox" name="Photocopy" value="Photocopy"><a>Photocopy</a><br> 
           <textarea id="subject" name="new_tags" value="<?php echo $new_tags ?>"></textarea>
       </div> -->
 

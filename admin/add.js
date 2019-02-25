@@ -1,7 +1,7 @@
-<!--
+/*
 MIT License
 
-Copyright (c) 2019 Kenneth Santos
+Copyright (c) 2019 Aly Gacutan, Kenneth Santos
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,35 +25,45 @@ This is a course requirement for CS 192 Software Engineering II under the
 supervision of Asst. Prof. Ma. Rowena C. Solamo of the Department of Computer 
 Science, College of Engineering, University of the Philippines, Diliman for 
 the AY 2018-2019
- -->
+*/
 
-<!-- 
+/*
 Code History
-v1.0 - Feb 21, 2019 - Initial file - PHP [Kenneth Santos]
+v1.0 - Feb 06, 2019 - Initial file - Javascript [Aly Gacutan]
+v2.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
-File Creation Date: Feb 21, 2019
+File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
 Client Group: N/A
-Purpose: The PHP File for Delete Establishment Function.
- -->
+Purpose: The Javascript File for javascript functions.
+*/
 
-<?php
-	include('server.php');
+function search(){
+  var input = document.getElementById("search");
+}
 
-	if(isset($_GET['id'])){
-		$id = (int)$_GET['id'];
-		$query = "DELETE FROM Establishment WHERE establishmentID={$id}";
-	} else {
-		echo 'No id set';
-	}
+// Get the modal
+var modal = document.getElementById('myModal');
 
-	$result = mysqli_query($connection,$query);
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
-	if($result){
-		$_SESSION['success_message'] = 'User data deleted successfully';
-		header('Location: viewall.php');
-	}else{
-		$_SESSION['error_message'] = 'User data couldn\'t be deleted';
-		header('Location: viewall.php');
-	} 
-?>
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

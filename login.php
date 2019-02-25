@@ -1,7 +1,7 @@
 <!--
 MIT License
 
-Copyright (c) 2019 Kenneth Santos
+Copyright (c) 2019 Aly Gacutan, Kenneth Santos
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -32,6 +32,7 @@ Code History
 v1.0 - Feb 06, 2019 - Initial file - PHP [Kenneth Santos]
 v2.0 - Feb 18, 2019 - Minor HTML/CSS revisions [Aly Gacutan]
 v3.0 - Feb 20, 2019 - Fixed Log In/Out Issues, Code Cleanup - PHP [Kenneth Santos]
+v4.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -40,8 +41,8 @@ Purpose: The HTML/PHP File for Login Page.
  -->
 
 <?php
-	include('server.php');
-	include('extras.php');
+	include("server.php");
+	include("extras.php");
 ?>
 
 <!DOCTYPE html>
@@ -60,11 +61,11 @@ Purpose: The HTML/PHP File for Login Page.
 					</div>
 
 					<?php
-						if(isset($_GET['error'])) {
-							if($_GET['error']==401)
+						if(isset($_GET["error"])) {
+							if($_GET["error"]==401)
 								array_push($errors, "<p class='error'> You must log in to continue! </p>");
 						}
-						include('errors.php');
+						include("errors.php");
 					?>
 
 					<div class="input-group">
@@ -78,9 +79,9 @@ Purpose: The HTML/PHP File for Login Page.
 					<div class="input-group">
 						<button class="btn" type="submit" name="login_user" id="login">Login</button>
 						<script type="text/javascript">
-							var btn = document.getElementById('login');
-							btn.addEventListener('click', function() {
-								document.location.href = '<?php echo "user/homepage.php"; ?>';
+							var btn = document.getElementById("login");
+							btn.addEventListener("click", function() {
+								document.location.href = "<?php echo "user/homepage.php"; ?>";
 							});
 						</script>
 					</div>
