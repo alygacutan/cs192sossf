@@ -34,6 +34,7 @@ v2.0 - Feb 07, 2019 - Revised PHP code [Kenneth Santos]
 v3.0 - Feb 20, 2019 - Fixed Log In/Out Issues, Code Cleanup - PHP [Kenneth Santos]
 v3.1 - Feb 20, 2019 - Connected Users Log In/Out to Database - PHP [Kenneth Santos]
 v4.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
+v4.1 - Feb 25, 2019 - Fixed some log in/out issues [Kenneth Santos]
 
 
 File Creation Date: Feb 06,2019
@@ -52,15 +53,20 @@ Purpose: The PHP Server File for connecting php files.
 	$errors = array();
 
 	//in need to go to login page?
-	if(!isset($_SESSION["username"]) && basename(strtok($_SERVER["REQUEST_URI"],"?"))!="login.php") {
-		header("location: login.php?error=401");
-	} elseif(isset($_SESSION["username"]) && basename(strtok($_SERVER["REQUEST_URI"],"?"))=="login.php") {
-		header("location: homepage.php");
+	$foldername = basename(dirname(strtok($_SERVER["REQUEST_URI"],"?")));
+	$filename = basename(strtok($_SERVER["REQUEST_URI"],"?"));
+	if(!isset($_SESSION["username"]) && $filename!="login.php") { //if username not set, then page must always be login
+		header("location: ../login.php?error=401"); //error: Unauthorized
+	} elseif(isset($_SESSION["userType"]) && $_SESSION["userType"]!=$foldername && $foldername!="cs192sossf") { //directory folder must be same to usertype, else main folder cs192sossf
+		header("location: /cs192sossf/login.php?error=403"); //error: Forbidden
+	} elseif(isset($_SESSION["username"]) && $filename=="login.php") { //login no longer available if logged in, redirect to homepage
+		header("location: {$_SESSION["userType"]}/homepage.php");
 	}
 
 	//the user logged out
 	if(isset($_GET["logout"])) {
 		unset($_SESSION["username"]);
+		unset($_SESSION["userType"]);
 		session_destroy();
 		header("location: login.php");
 	}
@@ -82,8 +88,8 @@ Purpose: The PHP Server File for connecting php files.
 			if (mysqli_num_rows($result)==1) {
 				$_SESSION["username"] = $username;
 				$account = mysqli_fetch_assoc($result);
-				$userType = $account["userType"];
-				header("location: {$account["userType"]}/homepage.php");
+				$_SESSION["userType"] = $account["userType"];
+				header("location: {$_SESSION["userType"]}/homepage.php");
 			} else {
 				array_push($errors, "<p class='error'> Wrong username/password combination! </p>");
 			}

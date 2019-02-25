@@ -29,22 +29,19 @@ the AY 2018-2019
 
  <!-- 
 Code History
-v1.0 - Feb 06, 2019 - Initial file - HTML [Kenneth Santos]
-v2.0 - Feb 20, 2019 - Cleaned code, Fixed Log In/Out Issues - PHP [Kenneth Santos]
-v3.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
-v3.1 - Feb 25, 2019 - Fixed some log in/out issues [Kenneth Santos]
+v1.0 - Feb 25, 2019 - Initial file - HTML [Kenneth Santos]
 
-File Creation Date: Feb 06,2019
+File Creation Date: Feb 25,2019
 Development Group: SOSSF Group 
 Client Group: N/A
-Purpose: The PHP Index File.
+Purpose: The PHP Index File for specific account type.
  -->
 
 <?php
 
 	//initial case
 	if (!isset($_SESSION["username"])) {
-		header("location: login.php");
+		header("location: /cs192sossf/login.php");
 	}
 
 	//the user already logged in, redirect to homepage

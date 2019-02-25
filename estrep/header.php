@@ -36,7 +36,6 @@ v4.0 - Feb 08, 2019 - Revised HTML code [Aly Gacutan]
 v5.0 - Feb 20, 2019 - Fixed Log In/Out Issues, Code Cleanup - PHP [Kenneth Santos]
 v6.0 - Feb 21, 2019 - Added search functionality using substring - PHP [Kenneth Santos]
 v7.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
-v7.1 - Feb 25, 2019 - Minor changes [Kenneth Santos]
 
 File Creation Date: Feb 05,2019
 Development Group: SOSSF Group 

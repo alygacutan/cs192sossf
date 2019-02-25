@@ -33,6 +33,7 @@ v1.0 - Feb 06, 2019 - Initial file - PHP [Kenneth Santos]
 v2.0 - Feb 18, 2019 - Minor HTML/CSS revisions [Aly Gacutan]
 v3.0 - Feb 20, 2019 - Fixed Log In/Out Issues, Code Cleanup - PHP [Kenneth Santos]
 v4.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
+v4.1 - Feb 25, 2019 - Fixed some log in/out issues [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -63,7 +64,9 @@ Purpose: The HTML/PHP File for Login Page.
 					<?php
 						if(isset($_GET["error"])) {
 							if($_GET["error"]==401)
-								array_push($errors, "<p class='error'> You must log in to continue! </p>");
+								array_push($errors, "<p class='error'> UNAUTHORIZED ACCESS<br><br><br><br>You must log in to continue! </p>");
+							elseif($_GET["error"]==403)
+								array_push($errors, "<p class='error'> FORBIDDEN<br><br><br><br>You must log in to continue! </p>");
 						}
 						include("errors.php");
 					?>

@@ -36,7 +36,6 @@ v3.0 - Feb 10, 2019 - Added tag icons [Aly Gacutan]
 v4.0 - Feb 20, 2019 - Added seach functionality using tags [Kenneth Santos]
 v5.0 - Feb 21, 2019 - Added seach functionality using name and location [Kenneth Santos]
 v6.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
-v6.1 - Feb 25, 2019 - Minor changes [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -48,7 +47,6 @@ Purpose: The HTML/PHP File for Home Page.
 	include("../server.php");
 	include("../extras.php");
 	include("header.php");
-	include("add.php") 
 ?>
 
 <!DOCTYPE html>
