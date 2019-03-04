@@ -87,6 +87,6 @@ Purpose: The HTML/PHP File for View All Page.
 			</table>
 		</div>
 	</body>
-	<script type="text/javascript" src="add-establishment.js">
+	<script type="text/javascript" src="add.js">
 	</script>
 </html>

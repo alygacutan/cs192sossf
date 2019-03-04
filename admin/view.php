@@ -45,6 +45,7 @@ Purpose: The HTML/PHP File for Establishment Page.
 	include_once ("../server.php");
 	include_once ("../extras.php");
 	include_once ("header.php");
+	include_once ("edit.php");
 ?>
 
 <!DOCTYPE html>
@@ -86,10 +87,10 @@ Purpose: The HTML/PHP File for Establishment Page.
 				<span class="fa fa-star checked"></span>
 				<span class="fa fa-star checked"></span>
 				<span class="fa fa-star"></span>
-				<span class="fa fa-star"></span></div><br>
+				<span class="fa fa-star"></span></div>
 					<button class="myBtn" style="margin-left:40px;float: left">Write a review</button>
-					<button class="myBtn" style="margin-right:40px;float: right;">Suggest an Edit</button>
-				<br><br>
+					<button id="editBtn" class="myBtn" style="margin-right:40px;float: right;">Suggest an Edit</button>
+				<br><br><br>
 				<div class="map">coming soon...</div><br>
 				<label style="font-family: "Montserrat", sans-serif; font-weight:normal; text-transform: uppercase; color: #f99a2c; font-size:15px">
 					Reviews and Comments</label><br>
@@ -100,7 +101,7 @@ Purpose: The HTML/PHP File for Establishment Page.
 	</body>
 
 	<script
-	type="text/javascript" src="add-establishment.js">
+	type="text/javascript" src="edit.js">
 	</script>
 
 	</html>

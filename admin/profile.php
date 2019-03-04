@@ -53,16 +53,35 @@ Purpose: The HTML/PHP File for Profile Page.
   </head>
 
   <body>
+    <img id="profilebg" src="../others/profilepage.jpg">
     <div class="content" style="height: 100%">
-      
-      <h1><u>Under Construction!</u></h1><br>
-      <div style="padding:30px">
-        <img class="profile-pic" src="https://images.vexels.com/media/users/3/137047/isolated/preview/5831a17a290077c646a48c4db78a81bb-user-profile-blue-icon-by-vexels.png">
-        <h2 style="padding:15px;position: absolute; display: inline-block;">Juan Dela Cruz</h2>
-        <a class="link"><span style="padding: 0px 5px 5px 23px; display: block;">[ ADMIN ]</span></a>
-      </div>
+        <div class="profile-container">
+          <?php
+          if (isset($_SESSION['username'])){
+            echo "<a>Welcome <i class='username'>".$_SESSION['username']."!</i></a>";
+
+            $query = "SELECT * FROM Admin";
+            $result = mysqli_query($connection, $query);
+            if(mysqli_num_rows($result)>0) {
+              while($row = mysqli_fetch_assoc($result)) {
+                echo "$row[name]";
+                echo "$row[email]";              }
+            } else {
+                echo "<p color='red'>No results found.</p>";
+            }
+          }      
+          mysqli_close($connection);
+          ?>
+          <h3><center>Aly Gacutan</center></h3><br>
+          <h4 style="display: inline;">Username: </h4> agacutan <br>
+          <h4 style="display: inline;">E-mail: </h4> agacutan@up.edu.ph<br>
+          <h4><a>change password<a></h4>
+          <span style="position: absolute; bottom: 1.5rem; right:1.5rem">
+            <button class="myBtn" style="display: inline;">delete account</button>
+            <button class="myBtn" style="display: inline;">edit profile</button>
+          </span>
+        </div>    
     </div>
-  </body>
 
   <script
   type="text/javascript" src="add-establishment.js">

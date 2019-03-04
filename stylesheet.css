@@ -37,8 +37,8 @@ v4.0 - Feb 08, 2019 - Revised HTML code, profile page, minor changes [Aly Gacuta
 v4.1 - Feb 08, 2019 - Revised HTML code, minor changes [Aly Gacutan]
 v5.1 - Feb 10, 2019 - Revised CSS code for Homepage.php [Aly Gacutan]
 v6.0 - Feb 17, 2019 - Revised CSS code for Header, View All Page [Aly Gacutan]
-v7.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
-
+v7.0 - Feb 23, 2019 - Revised CSS code for Profile Page [Aly Gacutan]
+v8.0 - Feb 25, 2019 - Revised file names and cleaned code [Kenneth Santos]
 File Creation Date: Feb 03,2019
 Development Group: SOSSF Group 
 Client Group: N/A
@@ -50,45 +50,51 @@ head{
 }	
 body{
 	background-color: #FFF;
-	margin-right: 10%;
-	margin-left: 10%;
+	margin-right: 10vw;
+	margin-left: 10vw;
 	font-family: 'Nunito Sans', sans-serif;
 }
 .logo{
-	top:-30px;
-	position: absolute;
+	top:0px;
+	position: relative;
 	max-height: 100px;
-	display: inline-block;
+	width: 400px; min-width: 380px;
+	object-fit: contain;
+	display: block;
 	font-size: 1vw;
 }
 header{
 	position: absolute;
-	height: 4rem;
+	height: 4rem; max-height: 12rem;
 	box-sizing: border-box;
-	z-index: 1;
+	z-index: 10;
 	background-color: rgba(255,225,107,1);
 	padding: 10px;
 	object-fit: contain;
 	top: 0px; left:0px; right:0px;
 	width: 100%;
-	max-width: 100%;
+	max-width: 100%; min-width: 100%;
 	box-shadow: 10px 10px 20px #fff;
+	object-fit: contain;
 }
 .active{
 	background-color: none;
 }
 header .nav{
-	display: inline-block;
+	display: block;
 	float: right; top:15px;
 	position: relative;
-	width:40%;
+	width:30%;
+	height: 2rem;
+	min-width: 350px;
+	object-fit: contain;
 }
 header .searchbar{
 	display: inline-block;
 	position: relative;
 	float: right;
 	right:3rem;
-	width:17rem;
+	width:17rem; min-width: 200px;
 	opacity: .8;
 	border-radius: 10px;
 }
@@ -113,7 +119,7 @@ header input[type=text]{
 	height: 0.3rem;
 	font-family: 'Nunito', sans-serif;
 	text-transform: uppercase;
-	font-size: .9vw;
+	font-size: 10px;
 	display: inline-block;
 	position: relative;
 	border: none;
@@ -149,7 +155,8 @@ header input[type=text]{
   border-right: 1px dashed #ccc;
   border-bottom: 3px solid rgba(255,225,107,1);
   width: 150px;
-  float: right;
+  float: left;
+  
   top: 2.4rem; right:-18.6rem;
   z-index: 1;
 }
@@ -163,11 +170,11 @@ header input[type=text]{
 	text-transform: uppercase;
 	font-weight: lighter;
 	font-size: 12px;
-	text-align: right;
+	text-align: left;
 }
 
 .dropdown-content a:hover {
-	border-bottom: 3px solid orange;
+	border-left: 3px solid orange;
 }
 
 .dropdown:hover .dropdown-content {display: block;}
@@ -196,26 +203,31 @@ header input[type=text]{
 	position: absolute;
 	background-color: #FFF;
 	box-sizing: border-box;
-	width: 80%;
+	width: 80vw;
 	padding: 30px 25px;
 	top: 4rem;
 	object-fit: contain;
+	min-width: 900px;
 }
-/*Homepage*/
+/*-------Homepage--------*/
 .homepage{
 	position: absolute;
 	float: right; right: 0rem;
 	top:4rem;  width: 50%;
+	min-width: 500px;
 	box-sizing: border-box;
 	height: 90%;
 	padding: 20px 10px;
 	overflow: auto;
+	background: rgba(255, 255, 255, 0.6)
 }
 #homepagebg{
 	position: fixed;
+	bottom:0rem;
 	left:0px;
-	width:  50%;
-	height: 90%;
+	width:  50vw;
+	min-width: 500px;
+	height: auto;
 	z-index: -1;
 }
 .searchbarhomepage{
@@ -227,20 +239,21 @@ header input[type=text]{
 	background-color:#fff;
 	box-sizing: border-box;
 	align-items: center;
+	box-shadow: 0px 5px 30px rgba(204, 204, 204, 0.6);
 }
 .searchbarhomepage:hover{
 	box-shadow: 0px 0px 30px rgba(255,225,107,1);
 }
-.searchbarhomepage input, .searchbarhomepage select{
+.searchbarhomepage input[type=text]{
 	height: 2rem;
 	width: 20rem;
+	min-width: 150px;
 	padding: 5px 5px 5px 8px;
 	margin-top:3px;
 	display: block;
 	font: 13px 'Montserrat',sans-serif;
 	border: none;
 	background: none;
-	
 }
  .searchbarhomepage button{
  	top:5px;
@@ -257,6 +270,7 @@ header input[type=text]{
  }*/
  .icon-bg{
  	width: 4rem; height: 4rem;
+ 	/*min-width: 20px; min-height: 20px;*/
  	display: inline-grid; position: relative;
  	align-items: center;
  	border-radius: 3rem;
@@ -271,13 +285,15 @@ header input[type=text]{
 	position: relative;
 	display: block;
 }
- /*Establishment Page*/
+ /*----Establishment Page-----*/
  .info{
  	width: 50%; height: 100%;
  	position: absolute;
  	padding: 10px 10px 10px 10px;
  	display: inline-block;
+ 	overflow: auto;
  }
+
  .reviewrate{
  	position: relative;
  	display: inline-block;
@@ -303,9 +319,30 @@ header input[type=text]{
 	overflow: auto;
 	border:3px solid #80ddcf;
 }
-
-
-/*Add Establishment Popup window*/
+/* --- profile page ---- */
+.profile-container{
+	position: absolute;
+	float: right; right: 0rem;
+	width: 50%; height:80%;
+	min-width: 400px;
+	align-self: center;
+	box-sizing: border-box;
+	box-shadow: 0px 10px 30px rgba(204, 204, 204, 0.5);
+	border-radius: 10px;
+	padding: 2rem;
+	border: 0.3rem solid rgb(188, 227, 244);
+	z-index: 2;
+	background-color: rgba(255, 255, 255,0.6);
+}
+#profilebg{
+	position: fixed;
+	left:0rem; bottom: 0rem;
+	width:  50vw;
+	min-width: 500px;
+	height: auto;
+	z-index: 1;
+}
+/*--Add Establishment Popup window--*/
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -348,19 +385,19 @@ header input[type=text]{
 #myBtn{
 	position: absolute;
 	top: 50%;
-	border: 2px solid rgba(255,225,107,1);
-	border-radius: 1rem;
 }
 #myBtn, .myBtn{
-	float: right;
 	color: #3BC8AC;	
 	font-size: 1rem;
 	font-family: 'Nunito Sans', sans-serif;
 	height: 2rem;
 	width: auto;
 	background-color: none;
+	float: right;
+	border: 2px solid rgba(255,225,107,1);
+	border-radius: 1rem;
 }
-#myBtn:hover{
+#myBtn:hover, .myBtn:hover{
 	box-shadow: 0.5rem 0.5rem 1rem rgba(255,225,107,0.3);
 	color: orange;
 }
@@ -372,6 +409,8 @@ header input[type=text]{
 	margin:10px;
 	position: relative;
 }
+
+/*---------*/
 table{
 	box-sizing: border-box;
 	margin-top:2rem;
@@ -417,6 +456,7 @@ h2{
 	text-shadow: 2px 2px 2px #fff;
 	letter-spacing: -1px;
 	color: #3BC8AC;
+	text-shadow: 0px 2px 5px rgba(204, 204, 204, 1);
 }
 h3{
 	font-family: 'Roboto', sans-serif;
@@ -440,22 +480,20 @@ a:hover{
 }
 .viewall{
 	position: relative;
-	display: inline-block;
-	float: right; right: 5%;
+	display: inline;
+	float: left; left: 3px;
 	top:10px;
 	color: #fff;
 	letter-spacing: .5px;
 	font-weight: lighter;
 }
 #logo{
-	position: relative;
 	float: left;
-	display: inline;
 	top: 40px;
 	font-family: 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	color: #fff;
-	font-size: 1.5vw;
+	font-size: 1.3rem;
 }
 .link:hover, .viewall:hover, #logo:hover{
 	font-style: normal;
@@ -585,12 +623,25 @@ textarea{
 }
 
 @media screen and (max-width:800px) {
+	header{
+		width:100%;
+		height: 6rem;
+	}
+	.logo, .nav{
+		font-size: 2rem;
+		display:block;
+	}
+  	
+}
+/*
+@media screen and (min-width:800px) {
   header, .content, .nav{
   	box-sizing: border-box;
-    min-width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+    min-width:100%; 
     flex-wrap: nowrap;
   }
   .logo,.nav{
   	display: block;
   }
 }
+*/
