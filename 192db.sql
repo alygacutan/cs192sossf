@@ -75,7 +75,7 @@ CREATE TABLE Establishment (
   businessHours VARCHAR(100),
   contactNo VARCHAR(100),
   lastUpdate DATE,
-  status SMALLINT,
+  status SMALLINT DEFAULT 0,
   username VARCHAR(100),
   PRIMARY KEY (establishmentID,name)
 );

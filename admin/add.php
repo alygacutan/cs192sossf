@@ -45,7 +45,7 @@ Purpose: The HTML/PHP File for Add Establishment Function.
  -->
 
 <?php
-  //include("../server.php");
+  //include("../server.php"); **ERROR**
   include("../extras.php");
 ?>
 
@@ -94,12 +94,6 @@ Purpose: The HTML/PHP File for Add Establishment Function.
       $new_businessHours = $_POST["new_businessHours"];
     }
 
-    if(empty($_POST["new_status"])){
-      $new_status_error = "This field must not be empty";
-    } else{
-      $new_status = $_POST["new_status"];
-    }
-
     if(empty($_POST["new_tags"])){
       $new_tags_error = "This field must not be empty";
     } else{
@@ -112,12 +106,10 @@ Purpose: The HTML/PHP File for Add Establishment Function.
       $new_services = $_POST["new_services"];
     }
 
-    if( $new_name AND $new_location AND $new_contactNo AND $new_businessHours AND $new_status){
-      $sql1 = "INSERT INTO Establishment(name, location, businessHours, services, tags, contactNo, status)
-      VALUES(\"$new_name\",\"$new_location\",\"$new_businessHours\",\"$new_services\",\"$new_tags\",\"$new_contactNo\", $new_status)";
-      mysqli_query($connection,$sql1);
-      //header("Location: viewall.php");
-
+    if( $new_name AND $new_location AND $new_contactNo AND $new_businessHours){
+      $sql1 = "INSERT INTO Establishment(name, location, businessHours, services, tags, contactNo)
+      VALUES(\"$new_name\",\"$new_location\",\"$new_businessHours\",\"$new_services\",\"$new_tags\",\"$new_contactNo\")";
+      mysqli_query($connection,$sql1) or die(mysqli_error($connection));
     }
   }
 ?>
@@ -195,7 +187,7 @@ Purpose: The HTML/PHP File for Add Establishment Function.
          <input type="checkbox" name="Binding" value="Binding"><a>Binding</a><br>
          <input type="checkbox" name="Salon" value="Salon"><a>Salon</a><br>
          <input type="checkbox" name="Photocopy" value="Photocopy"><a>Photocopy</a><br> 
-          <textarea id="subject" name="new_tags" value="<?php echo $new_tags ?>"></textarea>
+          <textarea id="subject" name="new_tags" value="<?php  $new_tags ?>"></textarea>
       </div> -->
 
         <input type="submit" name="button" value="Create" class="btn">
