@@ -45,7 +45,7 @@ Purpose: The HTML/PHP File for Add Establishment Function.
  -->
 
 <?php
-  include("../server.php");
+  //include("../server.php");
   include("../extras.php");
 ?>
 
@@ -156,12 +156,6 @@ Purpose: The HTML/PHP File for Add Establishment Function.
         <label>Business Hours:</label>
         <input type="text" name="new_businessHours" value="<?php echo $new_businessHours ?>">
         <small class="error"><?php echo $new_businessHours_error ?></small>
-      </div>
-
-      <div class="input-group">
-        <label>Status:</label>
-        <input type="text" name="new_status" value="<?php echo $new_status ?>">
-        <small class="error"><?php echo $new_status_error ?></small>
       </div>
            
      <div class="input-group">
