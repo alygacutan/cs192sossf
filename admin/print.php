@@ -31,6 +31,7 @@ the AY 2018-2019
 Code History
 v1.0 - Feb 25, 2019 - Initial file - HTML [Kenneth Santos]
 v2.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
+v3.0 - March 8, 2019- Added Edit feature. [Aly Gacutan]
 
 File Creation Date: Feb 25,2019
 Development Group: SOSSF Group 
@@ -39,14 +40,15 @@ Purpose: The PHP File for printing.
  -->
 
 <?php
-
+include_once ("edit.php");
 //for viewall.php, search.php
 function view($record) {
 	echo "<tr>
 			<td><a href='view.php?id={$record["establishmentID"]}'>{$record["name"]}</a></td>
 			<td>{$record["tags"]}</td>
-			<td><a href=''>Edit</a>, <a href='delete.php?id={$record["establishmentID"]}'>Delete</a></td>
+			<td><a id='editBtn'>Edit</a> , <a href='delete.php?id={$record["establishmentID"]}'>Delete</a></td>
 		  </tr>";
 }
 
 ?>
+<script type="text/javascript" src="edit.js"></script>
