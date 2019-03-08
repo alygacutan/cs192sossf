@@ -78,7 +78,9 @@ Purpose: The HTML/PHP File for Establishment Page.
 
 				<h2>Services:</h2>
 				<div class="services">
-						<p>...</p>
+						<?php
+						echo "<p>".$result["services"]."</p>"
+						?>
 				</div>
 			</div>
 			
@@ -88,8 +90,8 @@ Purpose: The HTML/PHP File for Establishment Page.
 				<span class="fa fa-star checked"></span>
 				<span class="fa fa-star"></span>
 				<span class="fa fa-star"></span></div>
-					<button class="myBtn" style="margin-left:40px;float: left">Write a review</button>
-					<button id="editBtn" class="myBtn" style="margin-right:40px;float: right;">Suggest an Edit</button>
+					<button id="editBtn" class="myBtn" style="margin-right:100px;float: right">Edit</button>
+					<button class="myBtn" style="margin-left:100px;float: left">Write a review</button>
 				<br><br><br>
 				<div class="map">coming soon...</div><br>
 				<label style="font-family: "Montserrat", sans-serif; font-weight:normal; text-transform: uppercase; color: #f99a2c; font-size:15px">

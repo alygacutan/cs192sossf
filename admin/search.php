@@ -64,7 +64,8 @@ Purpose: The HTML/PHP File for Search Page.
 			<table>
 				<tr>
 					<th>Name</th>
-					<th>Type/Tag(s)</th>
+					<th>Type/Tag</th>
+					<th>Added by</th>
 					<th>Actions</th>
 				</tr>
 

@@ -69,7 +69,7 @@ Purpose: The HTML/PHP File for View All Page.
 					<th>Name</th>
 					<th>Type/Tag(s)</th>
 					<th>Added by</th>
-					<th>Actions</th>
+					<!-- <th>Actions</th> -->
 				</tr>
 
 				<?php

@@ -168,9 +168,9 @@ Purpose: The HTML/PHP File for Edit Establishment Function.
 
 			<div class="input-group">
 				<label>Services:</label>
+				<textarea type="text" name="new_services"><?php echo $services ?></textarea>
 				<small class="error"><?php echo $services_error ?></small>
-				
-			</div><textarea id="subject" name="new_services" value="<?php echo $services ?>"></textarea><br>
+			</div>
 
 
 				<input type="submit" name="button" value="Make Changes" class="btn">

@@ -54,6 +54,8 @@ Purpose: The HTML/PHP File for Add Establishment Function.
 
 <?php
   /* - - - - - - VARIABLE DECLARTIONS - - - - - - */
+  $username = $_SESSION["username"];
+  $userType = $_SESSION["userType"];
   $new_establishmentID = $new_establishmentID_error = "";
   $new_name = $new_name_error= "";
   $new_location = $new_location_error = "";
@@ -107,8 +109,8 @@ Purpose: The HTML/PHP File for Add Establishment Function.
     }
 
     if( $new_name AND $new_location AND $new_contactNo AND $new_businessHours){
-      $sql1 = "INSERT INTO Establishment(name, location, businessHours, services, tags, contactNo)
-      VALUES(\"$new_name\",\"$new_location\",\"$new_businessHours\",\"$new_services\",\"$new_tags\",\"$new_contactNo\")";
+      $sql1 = "INSERT INTO Establishment(name, location, businessHours, services, tags, contactNo, addedBy)
+      VALUES(\"$new_name\",\"$new_location\",\"$new_businessHours\",\"$new_services\",\"$new_tags\",\"$new_contactNo\", \"$username ($userType)\")";
       mysqli_query($connection,$sql1) or die(mysqli_error($connection));
     }
   }
@@ -156,14 +158,12 @@ Purpose: The HTML/PHP File for Add Establishment Function.
         <small class="error"><?php echo $new_tags_error ?></small>
       </div>
 
+
       <div class="input-group">
         <label>Services:</label>
-        <!--<input type="text" name="new_services" value="<?php echo $new_services ?>"> -->
+        <textarea type="text" name="new_services"><?php echo $new_services ?></textarea>
         <small class="error"><?php echo $new_services_error ?></small>
-        <!-- under co. still testing how to fix this--->
-        
-      </div><textarea id="subject" name="new_services" value="<?php echo $new_services ?>"></textarea><br>
-
+      </div>
       <!-- <div class="checkboxes">
         <br>
         <label> Tag(s)/ Type(s):</label>

@@ -75,7 +75,7 @@ Purpose: The HTML/PHP File for Requests Page.
       <h1>Update Requests</h1>
 
       <table>
-        <tr><th>ID</th><th>Name</th><th>Location</th><th>Contact No.</th><th>Business Hours</th><th>Type/Tag(s)</th><th>Actions</th></tr>
+        <tr><th>ID</th><th>Name</th><th>Location</th><th>Contact No.</th><th>Business Hours</th><th>Type/Tag(s)</th><th>Added by</th><th>Actions</th></tr>
         <!-- less user,status -->
 
         <?php
@@ -83,7 +83,7 @@ Purpose: The HTML/PHP File for Requests Page.
         $result_view_all = $connection->query($sql_view_all);
         if ($result_view_all->num_rows > 0) {
             while($row = $result_view_all->fetch_assoc()) {
-                echo "<tr><td>".$row["establishmentID"]."</td><td><a href='establishment-page.php?est=".$row["establishmentID"]."'>".$row["name"]."</a></td><td>".$row["location"]."</td><td>".$row["contactNo"]."</td><td>".$row["businessHours"]."</td><td>".$row["tags"]."</td><td><a href='requests.php?action=1&est=".$row["establishmentID"]."'>Approve</a>,<a href='requests.php?action=0&est=".$row["establishmentID"]."' style='color:red'>Deny</a></td></tr>";
+                echo "<tr><td>".$row["establishmentID"]."</td><td><a href='establishment-page.php?est=".$row["establishmentID"]."'>".$row["name"]."</a></td><td>".$row["location"]."</td><td>".$row["contactNo"]."</td><td>".$row["businessHours"]."</td><td>".$row["tags"]."</td><td>".$row["addedBy"]."</td><td><a href='requests.php?action=1&est=".$row["establishmentID"]."'>Approve</a>,<a href='requests.php?action=0&est=".$row["establishmentID"]."' style='color:red'>Deny</a></td></tr>";
             }
         } else {
             echo "<p color='red'>No results found.</p>";
