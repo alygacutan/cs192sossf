@@ -69,7 +69,7 @@ Purpose: The HTML/PHP File for Header.
 				</a>
 			</button>
 			<div class="dropdown-content">
-				<a href="profile.php">Profile</a>
+				<a href="#">Profile</a>
 				<a href="requests.php">Update Requests</a>
 				<a href="../server.php?logout=1">Sign Out</a>
 			</div>

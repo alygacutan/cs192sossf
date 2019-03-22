@@ -343,7 +343,7 @@ header input[type=text]{
 	z-index: 1;
 }
 /*--Add Establishment Popup window--*/
-.modal {
+.modal , .popup{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 10; /* Sit on top */
@@ -369,6 +369,17 @@ header input[type=text]{
   object-fit: contain;
 }
 
+.popup-content{
+background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 40%;
+  max-height: 40%;
+  border: 3px solid #3BC8AC;
+  border-radius: 20px;
+  overflow: auto;
+  object-fit: contain;
+}
 /* The Close Button */
 .close {
   color: #aaaaaa;

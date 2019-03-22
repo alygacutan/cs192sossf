@@ -32,6 +32,7 @@ Code History
 v1.0 - Feb 07, 2019 - Initial file - HTML [Aly Gacutan]
 v2.0 - Feb 08, 2019 - Added PHP code [Kenneth Santos]
 v3.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
+v4.0 - Mar 20, 2019 - Revised PHP code [Kenneth Santos]
 
 File Creation Date: Feb 07,2019
 Development Group: SOSSF Group 
@@ -40,76 +41,104 @@ Purpose: The HTML/PHP File for Requests Page.
  -->
 
 <?php
-  include_once ('../server.php');
-  include_once ('../extras.php');
-  include_once ('header.php');
-  include_once ('../establishment.php');
+	include_once ('../server.php');
+	include_once ('../extras.php');
+	include_once ('header.php');
+	//include_once ('../establishment.php');
+
+	if(isset($_GET['action']) and isset($_GET['id'])){
+		$_SESSION['id'] = $_GET['id'];
+		$_SESSION['action'] = $_GET['action'];
+		if($_SESSION['action']==1) {
+			$sql_temp = "SELECT * FROM Requests WHERE id={$_SESSION['id']}";
+			$result_temp = $connection->query($sql_temp);
+			if ($result_temp->num_rows > 0) {
+				while($row = $result_temp->fetch_assoc()) {
+					switch ($row["type"]) {
+						case 1:
+							$sql1="INSERT INTO Establishment(name, location, businessHours, services, tags, contactNo, addedBy, lastEditBy,status,lastUpdate) VALUES(\"{$row['name']}\",\"{$row['location']}\",\"{$row['businessHours']}\",\"{$row['services']}\",\"{$row['tags']}\",\"{$row['contactNo']}\",\"{$row['username']}\",\"{$row['username']}\",1,NOW());";
+							break;
+						case 2:
+							$sql1="UPDATE Establishment SET name=\"{$row['name']}\", location=\"{$row['location']}\", tags=\"{$row['tags']}\", contactNo={$row['contactNo']}, businessHours=\"{$row['businessHours']}\", services=\"{$row['services']}\", lastEditBy=\"{$row['username']}\", lastUpdate=NOW() WHERE establishmentID={$row['establishmentID']}";
+							break;
+						case 3:
+							$sql1="UPDATE Establishment SET status=-1 WHERE establishmentID={$row['establishmentID']}";
+							break;
+					}
+
+					mysqli_query($connection,$sql1) or die(mysqli_error($connection));
+					$sql="UPDATE Requests SET status=1, time_evaluated=NOW() WHERE id = {$_SESSION['id']};";
+				}
+			}
+		}
+		else if($_SESSION['action']==0) {
+			$sql="UPDATE Requests SET status=-1, time_evaluated=NOW()
+			WHERE id = {$_SESSION['id']}";
+		}
+		mysqli_query($connection,$sql) or die(mysqli_error($connection));
+	}
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
-  
-  <head><title>School and Office Supplies and Services Finder</title>
-  </head>
+	
+	<head><title>School and Office Supplies and Services Finder</title>
+	</head>
 
-  <body>
-    <div class="content" style="height: 100%">
+	<body>
+		<div class="content" style="height: 100%">
 
+			<h1>Update Requests</h1>
 
-      <?php
+			<table>
+				<tr><th>Name</th><th>Location</th><th>Type/Tag(s)</th><th>Request by</th><th>Type of Request</th><th>Actions</th></tr>
+				<!-- less user,status -->
 
-        if(isset($_GET['action']) and isset($_GET['est']))
-          {$_SESSION['est'] = $_GET['est'];$_SESSION['action'] = $_GET['action'];
-        if($_SESSION['action']==1) {
-        $sql="UPDATE Establishment SET status=1
-        WHERE establishmentID = {$_SESSION['est']}";
-        }
-        else if($_SESSION['action']==0) {
-        $sql="UPDATE Establishment SET status=-1
-        WHERE establishmentID = {$_SESSION['est']}";
-        }
-        mysqli_query($connection,$sql) or die(mysqli_error($connection));      }
+				<?php
+				$sql_view_all = "SELECT * FROM Requests WHERE status=0";
+				$result_view_all = $connection->query($sql_view_all);
+				if ($result_view_all->num_rows > 0) {
+						while($row = $result_view_all->fetch_assoc()) {
+							switch ($row["type"]) {
+								case 1:
+									 $requestStatus = "Add Establishment";
+									 break;
+								case 2:
+									 $requestStatus = "Edit Establishment";
+									 break;
+								case 3:
+									 $requestStatus = "Delete Establishment";
+									 break;
+							}
+							echo "<tr><td><a href='view.php?est=".$row["establishmentID"]."'>".$row["name"]."</a></td><td>".$row["location"]."</td><td>".$row["tags"]."</td><td>".$row["username"]." (".$row["userType"].")"."</td><td>".$requestStatus."</td><td><a href='requests.php?action=1&id=".$row["id"]."'>Approve</a>,<a href='requests.php?action=0&id=".$row["id"]."' style='color:red'>Deny</a></td></tr>";
+						}
+				} else {
+						echo "<p color='red'>No results found.</p>";
+				}
+				?>
 
-      ?>
+				<!-- <tr>
+					<td><p>01</p></td>
+					<td><a href="establishment-page.php">Blessings</a></td>
+					<td>Somewhere</td>  
+					<td>09XX-XXX-XXXX</td>
+					<td>7am-7pm</td>
+					<td></td>
+					<td>Print, Internet, Bind, Photocopy</td>
+					<td>user1</td>
+					<td><a href="">Approve</a> | <a href="" style="color:red">Deny</a></td>
+				</tr> -->
+				
+			</table>
+		</div>
+	</body>
 
-      <h1>Update Requests</h1>
+	<script
+	type="text/javascript" src="add-establishment.js">
+	</script>
 
-      <table>
-        <tr><th>ID</th><th>Name</th><th>Location</th><th>Contact No.</th><th>Business Hours</th><th>Type/Tag(s)</th><th>Added by</th><th>Actions</th></tr>
-        <!-- less user,status -->
+	</html>
 
-        <?php
-        $sql_view_all = "SELECT * FROM Establishment WHERE status=0";
-        $result_view_all = $connection->query($sql_view_all);
-        if ($result_view_all->num_rows > 0) {
-            while($row = $result_view_all->fetch_assoc()) {
-                echo "<tr><td>".$row["establishmentID"]."</td><td><a href='establishment-page.php?est=".$row["establishmentID"]."'>".$row["name"]."</a></td><td>".$row["location"]."</td><td>".$row["contactNo"]."</td><td>".$row["businessHours"]."</td><td>".$row["tags"]."</td><td>".$row["addedBy"]."</td><td><a href='requests.php?action=1&est=".$row["establishmentID"]."'>Approve</a>,<a href='requests.php?action=0&est=".$row["establishmentID"]."' style='color:red'>Deny</a></td></tr>";
-            }
-        } else {
-            echo "<p color='red'>No results found.</p>";
-        }
-        ?>
-
-        <!-- <tr>
-          <td><p>01</p></td>
-          <td><a href="establishment-page.php">Blessings</a></td>
-          <td>Somewhere</td>  
-          <td>09XX-XXX-XXXX</td>
-          <td>7am-7pm</td>
-          <td></td>
-          <td>Print, Internet, Bind, Photocopy</td>
-          <td>user1</td>
-          <td><a href="">Approve</a> | <a href="" style="color:red">Deny</a></td>
-        </tr> -->
-        
-      </table>
-    </div>
-  </body>
-
-  <script
-  type="text/javascript" src="add-establishment.js">
-  </script>
-
-  </html>
-
-  <?php $connection->close(); ?>
+	<?php $connection->close(); ?>

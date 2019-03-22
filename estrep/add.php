@@ -47,7 +47,7 @@ Purpose: The HTML/PHP File for Add Establishment Function.
 
 <?php
   //include("../server.php"); **ERROR**
-  include("../extras.php");
+  //include("../extras.php");
 ?>
 
 <!DOCTYPE html>
@@ -112,6 +112,7 @@ Purpose: The HTML/PHP File for Add Establishment Function.
     if( $new_name AND $new_location AND $new_contactNo AND $new_businessHours){
       $sql1 = "INSERT INTO Requests(username, userType, type, name, location, businessHours, services, tags, contactNo, notes,time_submitted) VALUES(\"$username\",\"$userType\",1,\"$new_name\",\"$new_location\",\"$new_businessHours\",\"$new_services\",\"$new_tags\",\"$new_contactNo\", \"\",NOW())";
       mysqli_query($connection,$sql1) or die(mysqli_error($connection));
+      header("Location: requests.php");
     }
   }
 ?>

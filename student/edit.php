@@ -40,7 +40,7 @@ Purpose: The HTML/PHP File for Edit Establishment Function.
 
 <?php
 	//include("../server.php");
-	include("../extras.php");
+	//include("../extras.php");
 ?>
 
 <!DOCTYPE html>
@@ -120,11 +120,10 @@ Purpose: The HTML/PHP File for Edit Establishment Function.
 
 
 		if( $name AND $location AND $contactNo AND $businessHours){
-
 			$query = "INSERT INTO Requests(username, userType, type, name, location, businessHours, services, tags, contactNo, notes,time_submitted,establishmentID) VALUES(\"$username\",\"$userType\",2,\"$name\",\"$location\",\"$businessHours\",\"$services\",\"$tags\",\"$contactNo\", \"\",NOW(),$id)";
-			echo $query;
-			mysqli_query($connection,$query) or die(mysqli_error($connection));
-	}
+			mysqli_query($connection,$query);
+			header("location: requests.php");
+		}
 	}
 ?>
 
