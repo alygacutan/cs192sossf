@@ -53,3 +53,5 @@ Purpose: The HTML/Script File for Extra Styling.
 
 <script type="text/javascript" src="add.js"></script>
 <script type="text/javascript" src="edit.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link data-require="sweet-alert@*" data-semver="0.4.2" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />

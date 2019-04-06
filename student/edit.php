@@ -31,6 +31,7 @@ the AY 2018-2019
 Code History
 v1.0 - Mar 04, 2019 - Initial file - HTML [Aly Gacutan]
 v2.0 - Mar 05, 2019 - Added edit functions - PHP [Kenneth Santos]
+v3.0 - Apr 03, 2019 - Added confirmation message - Javascript [Aly Gacutan]
 
 File Creation Date: Mar 04,2019
 Development Group: SOSSF Group 
@@ -42,7 +43,9 @@ Purpose: The HTML/PHP File for Edit Establishment Function.
 	//include("../server.php");
 	//include("../extras.php");
 ?>
-
+<script
+	type="text/javascript" src="edit.js">
+	</script>
 <!DOCTYPE html>
 <html>
 <?php
@@ -131,7 +134,7 @@ Purpose: The HTML/PHP File for Edit Establishment Function.
 	<!-- Modal content -->
 	<div class="modal-content">
 		<span class="close">&times;</span>
-		<form class="container" method="POST">
+		<form class="container" method="POST" id="from1">
 
 			<?php include("../errors.php"); ?>
 
@@ -179,9 +182,40 @@ Purpose: The HTML/PHP File for Edit Establishment Function.
 				<input type="submit" name="button" value="Make Changes" class="btn">
 
 			 <div class="input-group">
-				<a href="view.php" style="color: white;">Make Changes</a>
+				<a href="view.php" style="color: white;" >Make Changes</a>
 			</div>
 
 		</form>
 	</div>
 </div>
+<script type="text/javascript">
+document.querySelector('#from1').addEventListener('submit', function(e) {
+  var form = this;
+
+  e.preventDefault(); // <--- prevent form from submitting
+
+  swal({
+      title: "Make changes?",
+      text: "Are you sure all info inputted are correct?",
+      icon: "warning",
+      buttons: [
+        'No, go back',
+        'Yes, I am sure!'
+      ],
+      dangerMode: true,
+    }).then(function(isConfirm) {
+      if (isConfirm) {
+        swal({
+          title: 'Success!',
+          text: 'The establishment is now shortlisted!',
+          icon: 'success'
+        }).then(function() {
+          form.submit(); // <--- submit form programmatically
+        });
+      } /*else {
+        swal("Cancelled", "Your imaginary file is safe :)", "error");
+      }*/
+    })
+});
+</script>
+</html>

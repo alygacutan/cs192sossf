@@ -112,7 +112,7 @@ Purpose: The HTML/PHP File for Requests Page.
 									 $requestStatus = "Delete Establishment";
 									 break;
 							}
-							echo "<tr><td><a href='view.php?est=".$row["establishmentID"]."'>".$row["name"]."</a></td><td>".$row["location"]."</td><td>".$row["tags"]."</td><td>".$row["username"]." (".$row["userType"].")"."</td><td>".$requestStatus."</td><td><a href='requests.php?action=1&id=".$row["id"]."'>Approve</a>,<a href='requests.php?action=0&id=".$row["id"]."' style='color:red'>Deny</a></td></tr>";
+							echo "<tr><td><a href='view.php?est=".$row["establishmentID"]."'>".$row["name"]."</a></td><td>".$row["location"]."</td><td>".$row["tags"]."</td><td>".$row["username"]." (".$row["userType"].")"."</td><td>".$requestStatus."</td><td><a href='requests.php?action=1&id=".$row["id"]."' id='from1'>Approve</a>,<a href='requests.php?action=0&id=".$row["id"]."' style='color:red' id='from1'>Deny</a></td></tr>";
 						}
 				} else {
 						echo "<p color='red'>No results found.</p>";
@@ -135,9 +135,7 @@ Purpose: The HTML/PHP File for Requests Page.
 		</div>
 	</body>
 
-	<script
-	type="text/javascript" src="add-establishment.js">
-	</script>
+	
 
 	</html>
 

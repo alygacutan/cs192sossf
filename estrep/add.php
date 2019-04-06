@@ -38,6 +38,7 @@ v3.1 - Feb 08, 2019 - Revised PHP code [Kenneth Santos]
 v4.0 - Feb 21, 2019 - Minimal changes - PHP [Kenneth Santos]
 v5.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
 v6.0 - Mar 20, 2019 - Revised PHP code [Kenneth Santos]
+v7.0 - Apr 02, 2019 - Added confirmation box [Aly Gacutan]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -47,7 +48,7 @@ Purpose: The HTML/PHP File for Add Establishment Function.
 
 <?php
   //include("../server.php"); **ERROR**
-  //include("../extras.php");
+  include("../extras.php");
 ?>
 
 <!DOCTYPE html>
@@ -112,7 +113,6 @@ Purpose: The HTML/PHP File for Add Establishment Function.
     if( $new_name AND $new_location AND $new_contactNo AND $new_businessHours){
       $sql1 = "INSERT INTO Requests(username, userType, type, name, location, businessHours, services, tags, contactNo, notes,time_submitted) VALUES(\"$username\",\"$userType\",1,\"$new_name\",\"$new_location\",\"$new_businessHours\",\"$new_services\",\"$new_tags\",\"$new_contactNo\", \"\",NOW())";
       mysqli_query($connection,$sql1) or die(mysqli_error($connection));
-      header("Location: requests.php");
     }
   }
 ?>
@@ -121,7 +121,7 @@ Purpose: The HTML/PHP File for Add Establishment Function.
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <form class="container" method="POST">
+    <form class="container" method="POST" id="from1">
 
       <?php include("../errors.php"); ?>
 
@@ -200,3 +200,35 @@ Purpose: The HTML/PHP File for Add Establishment Function.
     </form>
   </div>
 </div>
+<script type="text/javascript">
+document.querySelector('#from1').addEventListener('submit', function(e) {
+  var form = this;
+
+  e.preventDefault(); // <--- prevent form from submitting
+
+  swal({
+      title: "Add new establishment?",
+      text: "Are you sure all info inputted are correct?",
+      icon: "warning",
+      buttons: [
+        'No, go back',
+        'Yes, I am sure!'
+      ],
+      dangerMode: true,
+    }).then(function(isConfirm) {
+      if (isConfirm) {
+        swal({
+          title: 'Success!',
+          text: 'The establishment is now shortlisted!',
+          icon: 'success'
+        }).then(function() {
+          form.submit(); // <--- submit form programmatically
+        });
+      } /*else {
+        swal("Cancelled", "Your imaginary file is safe :)", "error");
+      }*/
+    })
+});
+
+
+</script>

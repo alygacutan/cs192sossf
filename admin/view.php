@@ -34,6 +34,7 @@ v1.1 - Feb 06, 2019 - Minor revisions [Aly Gacutan]
 v2.0 - Feb 07, 2019 - Added PHP code [Kenneth Santos]
 v3.0 - Feb 21, 2019 - Mininal changes - PHP [Kenneth Santos]
 v4.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
+v5.0 - Mar ,2019 - Added Edit feature [Aly Gacutan]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -66,38 +67,43 @@ Purpose: The HTML/PHP File for Establishment Page.
 
 			?>
 
-			<div class="info">
+			<div class="info" style="float: left; left: 0rem">
 
 				<?php
-				echo "<h3>".$result["name"]."</h3>";
-				echo "<p>".$result["location"]."</p>";
-				echo "<p>".$result["contactNo"]."</p>";
-				echo "<p>".$result["tags"]."</p>";
-				echo "<p>".$result["businessHours"]."</p>"
+				echo "<h1 style='font-size: 35px;'>".$result["name"]."</h1>";
+				echo "<p><i style='font-size:15px; color: rgb(188, 227, 244)' class='fas'>&#xf3c5;</i> ".$result["location"]."</p>";
+				echo "<p><i style='font-size:15px; color: rgb(188, 227, 244)' class='fas'>&#xf095;</i> ".$result["contactNo"]."</p>";
+				echo "<p><i style='font-size:15px; color: rgb(188, 227, 244)' class='fas'>&#xf02c;</i> ".$result["tags"]."</p>";
+				echo "<p><i style='font-size:15px; color: rgb(188, 227, 244)' class='fas'>&#xf017;</i> ".$result["businessHours"]."</p>"
 				?>
-
-				<h2>Services:</h2>
+				<center>
+						<button id="editBtn" class="myBtn" style="float: right">Edit</button>
+						<button class="myBtn" style="float: left">Write a review</button>
+					</center>
+				<!--<div class="reviewrate" >
+					</div>
+					
+					<div class="rate">
+					    <input type="radio" id="star5" name="rate" value="5" />
+					    <label for="star5" title="text">5 stars</label>
+					    <input type="radio" id="star4" name="rate" value="4" />
+					    <label for="star4" title="text">4 stars</label>
+					    <input type="radio" id="star3" name="rate" value="3" />
+					    <label for="star3" title="text">3 stars</label>
+					    <input type="radio" id="star2" name="rate" value="2" />
+					    <label for="star2" title="text">2 stars</label>
+					    <input type="radio" id="star1" name="rate" value="1" />
+					    <label for="star1" title="text">1 star</label>
+					    <a href style="font-size: 12px; position: absolute; float: left; bottom: -0.3rem">Rate this Establishment!</a>
+				</div>-->
+			</div>
+			<div class="services-container"><h2 style="text-shadow: none; font-weight: normal;"><br>Services:</h2>
 				<div class="services">
 						<?php
 						echo "<p>".$result["services"]."</p>"
 						?>
 				</div>
 			</div>
-			
-			<div class="reviewrate"><center><div>
-				<span class="fa fa-star checked"></span>
-				<span class="fa fa-star checked"></span>
-				<span class="fa fa-star checked"></span>
-				<span class="fa fa-star"></span>
-				<span class="fa fa-star"></span></div>
-					<button id="editBtn" class="myBtn" style="margin-right:100px;float: right">Edit</button>
-					<button class="myBtn" style="margin-left:100px;float: left">Write a review</button>
-				<br><br><br>
-				<div class="map">coming soon...</div><br>
-				<label style="font-family: "Montserrat", sans-serif; font-weight:normal; text-transform: uppercase; color: #f99a2c; font-size:15px">
-					Reviews and Comments</label><br>
-				<div class="reviews">coming soon...</div>
-			</center></div>
 		
 		</div>
 	</body>
@@ -105,7 +111,7 @@ Purpose: The HTML/PHP File for Establishment Page.
 	<script
 	type="text/javascript" src="edit.js">
 	</script>
-
+	
 	</html>
 
 	<?php $connection->close(); ?>

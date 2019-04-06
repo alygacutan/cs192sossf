@@ -67,3 +67,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+function confirmSubmission(){
+	prompt("Do you wish to continue with the following changes?");
+}

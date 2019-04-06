@@ -32,7 +32,7 @@ Code History
 v1.0 - Feb 08, 2019 - Initial file - HTML [Aly Gacutan]
 v1.1 - Feb 08, 2019 - Added PHP code [Kenneth Santos]
 v2.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
-
+v3.0 - Apr 02, 2019 - Minor HTML revisions [Aly Gacutan]
 File Creation Date: Feb 08,2019
 Development Group: SOSSF Group 
 Client Group: N/A
@@ -56,27 +56,25 @@ Purpose: The HTML/PHP File for Profile Page.
     <img id="profilebg" src="../others/profilepage.jpg">
     <div class="content" style="height: 100%">
         <div class="profile-container">
-          <?php /*
+          <?php
           if (isset($_SESSION['username'])){
-            echo "<a>Welcome <i class='username'>".$_SESSION['username']."!</i></a>";
+            //echo "<a>Welcome <i class='username'>".$_SESSION['username']."!</i></a>";
 
-            $query = "SELECT * FROM user where";
+            $query = "SELECT * FROM EstablishmentRepresentative WHERE username='".$_SESSION['username']."'";
             $result = mysqli_query($connection, $query);
             if(mysqli_num_rows($result)>0) {
               while($row = mysqli_fetch_assoc($result)) {
-                echo "$row[username]";
-                echo "$row[userType]";              }
+                echo "<h3><center>$row[name]</center></h3><br>";
+                echo "<h4 style='display: inline'>Username: </h4> ".$_SESSION['username']." <br>";
+                echo "<h4 style='display: inline'>E-mail: </h4>$row[email]<br>";              }
             } else {
                 echo "<p color='red'>No results found.</p>";
             }
           }      
-          mysqli_close($connection);*/
+          mysqli_close($connection);
           ?>
-          <h3><center>Aly Gacutan</center></h3><br>
-          <h4 style="display: inline;">Username: </h4> agacutan <br>
-          <h4 style="display: inline;">E-mail: </h4> agacutan@up.edu.ph<br>
-          <h4 style="display: inline;">Account type: </h4> Admin<br>
-
+          
+          
           <h4><a>change password<a></h4>
           <span style="position: absolute; bottom: 1.5rem; right:1.5rem">
             <button class="myBtn" style="display: inline;">delete account</button>

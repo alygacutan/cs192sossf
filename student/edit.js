@@ -71,3 +71,4 @@ var bttn = document.getElementById('makeChanges');
 bttn.onclinck = function(){
 	modal.style.display = "block";
 }
+

@@ -38,7 +38,8 @@ v3.1 - Feb 08, 2019 - Revised PHP code [Kenneth Santos]
 v4.0 - Feb 17, 2019 - Revised HTML code [Aly Gacutan]
 V5.0 - Feb 20, 2019 - Added Delete Functionality [Kenneth Santos]
 v6.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
-
+v7.0 - - Added Edit feature [Aly Gacutan]
+v8.0 - - Added Delete feature [Aly Gacutan]
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
 Client Group: N/A

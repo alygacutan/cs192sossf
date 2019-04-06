@@ -46,7 +46,7 @@ function view($record) {
 			<td><a href='view.php?id={$record["establishmentID"]}'>{$record["name"]}</a></td>
 			<td>{$record["tags"]}</td>
 			<td>{$record["addedBy"]}</td>
-			<td><a href='delete.php?id={$record["establishmentID"]}'>Delete</a></td>
+			<td><a style='color: red' href='delete.php?id={$record["establishmentID"]}'>Delete</a></td>
 		  </tr>";
 	//		<td><a href=''>Edit</a>, <a href='delete.php?id={$record["establishmentID"]}'>Delete</a></td>
 	//	  </tr>";
