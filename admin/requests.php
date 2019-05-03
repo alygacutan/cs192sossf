@@ -43,7 +43,8 @@ Purpose: The HTML/PHP File for Requests Page.
 <?php
 	include_once ('../server.php');
 	include_once ('../extras.php');
-	include_once ('header.php');
+	include_once ('../header.php');
+	include_once ('../footer.php');
 	//include_once ('../establishment.php');
 
 	if(isset($_GET['action']) and isset($_GET['id'])){
@@ -112,31 +113,34 @@ Purpose: The HTML/PHP File for Requests Page.
 									 $requestStatus = "Delete Establishment";
 									 break;
 							}
-							echo "<tr><td><a href='view.php?est=".$row["establishmentID"]."'>".$row["name"]."</a></td><td>".$row["location"]."</td><td>".$row["tags"]."</td><td>".$row["username"]." (".$row["userType"].")"."</td><td>".$requestStatus."</td><td><a href='requests.php?action=1&id=".$row["id"]."' id='from1'>Approve</a>,<a href='requests.php?action=0&id=".$row["id"]."' style='color:red' id='from1'>Deny</a></td></tr>";
+							echo "<tr><td><a href='view.php?est=".$row["establishmentID"]."'>".$row["name"]."</a></td><td>".$row["location"]."</td><td>".$row["tags"]."</td><td>".$row["username"]." (".$row["userType"].")"."</td>
+
+								<td>".$requestStatus."</td>
+								<td>
+								<a href='requests.php?action=1&id=".$row["id"]."' style='color: green;' id='from1'>Approve</a> |
+								<a href='requests.php?action=0&id=".$row["id"]."' style='color:red' id='from1' >Deny</a></td></tr>";
 						}
 				} else {
-						echo "<p color='red'>No results found.</p>";
+						//echo "<p color='red'>No results found.</p>";
 				}
 				?>
-
-				<!-- <tr>
-					<td><p>01</p></td>
-					<td><a href="establishment-page.php">Blessings</a></td>
-					<td>Somewhere</td>  
-					<td>09XX-XXX-XXXX</td>
-					<td>7am-7pm</td>
-					<td></td>
-					<td>Print, Internet, Bind, Photocopy</td>
-					<td>user1</td>
-					<td><a href="">Approve</a> | <a href="" style="color:red">Deny</a></td>
-				</tr> -->
 				
 			</table>
 		</div>
+		<div class="popup" id="popup">
+			<div class="popup-content">
+				<h1>HIIIII</h1>
+				<button class="myBtn" id="ok"><a> Sure</a></button>
+			</div>
+		</div>
 	</body>
+	<script type="text/javascript">
+		var btn=document.getElementById("from1");
 
-	
-
+		btn.onclick = function(){
+			confirm("Are you sure? Once you make changes you cannot go back.");
+		}
+	</script>
 	</html>
 
 	<?php $connection->close(); ?>

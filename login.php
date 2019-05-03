@@ -44,6 +44,7 @@ Purpose: The HTML/PHP File for Login Page.
 <?php
 	include("server.php");
 	include("extras.php");
+	include("footer.php");
 ?>
 
 <!DOCTYPE html>
@@ -52,46 +53,49 @@ Purpose: The HTML/PHP File for Login Page.
 	<title>Login | School and Office Supplies and Services Finder</title>
 </head>
 <body>
-	<div class="homepage">
-		<img id="homepagebg" src="bg3.png">
-		<center>
-			<div class="signup">
-				<form class="container" method="post" action="login.php">
-					<div class="input-group">
-						<h2 style="font-size: 3vw">Log In</h2>
-					</div>
+	<div class="content">
+		<div class="homepage-container">
+			<div class="homepage">
+				<center>
+					<div class="signup">
+						<form class="container" method="post" action="login.php">
+							<div class="input-group">
+								<h2 style="font-size: 3vw">Log In</h2>
+							</div>
 
-					<?php
-						if(isset($_GET["error"])) {
-							if($_GET["error"]==401)
-								array_push($errors, "<p class='error'> UNAUTHORIZED ACCESS<br><br><br><br>You must log in to continue! </p>");
-							elseif($_GET["error"]==403)
-								array_push($errors, "<p class='error'> FORBIDDEN<br><br><br><br>You must log in to continue! </p>");
-						}
-						include("errors.php");
-					?>
+							<?php
+								if(isset($_GET["error"])) {
+									if($_GET["error"]==401)
+										array_push($errors, "<p class='error'> UNAUTHORIZED ACCESS<br><br><br><br>You must log in to continue! </p>");
+									elseif($_GET["error"]==403)
+										array_push($errors, "<p class='error'> FORBIDDEN<br><br><br><br>You must log in to continue! </p>");
+								}
+								include("errors.php");
+							?>
 
-					<div class="input-group">
-						<label>Username</label>
-						<input type="text" name="username">
+							<div class="input-group">
+								<label>Username</label>
+								<input type="text" name="username">
+							</div>
+							<div class="input-group">
+								<label>Password</label>
+								<input type="password" name="password">
+							</div>
+							<div class="input-group">
+								<button class="btn" type="submit" name="login_user" id="login">Login</button>
+								<script type="text/javascript">
+									var btn = document.getElementById("login");
+									btn.addEventListener("click", function() {
+										document.location.href = "<?php echo "user/homepage.php"; ?>";
+									});
+								</script>
+							</div>
+						</form>
 					</div>
-					<div class="input-group">
-						<label>Password</label>
-						<input type="password" name="password">
-					</div>
-					<div class="input-group">
-						<button class="btn" type="submit" name="login_user" id="login">Login</button>
-						<script type="text/javascript">
-							var btn = document.getElementById("login");
-							btn.addEventListener("click", function() {
-								document.location.href = "<?php echo "user/homepage.php"; ?>";
-							});
-						</script>
-					</div>
-				</form>
+					<!--<p> Create an account! <a href="register.php" style="color: #f99a2c">Sign up</a></p>-->
+				</center>
 			</div>
-			<p> Create an account! <a href="register.php" style="color: #f99a2c">Sign up</a></p>
-		</center>
+		</div>
 	</div>
 </body>
 </html>

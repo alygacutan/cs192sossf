@@ -45,10 +45,11 @@ Purpose: The HTML/PHP File for Search Page.
  -->
 
 <?php
-	include('../server.php');
-	include('../extras.php');
-	include('header.php');
-	include('print.php');
+	include_once ('../server.php');
+	include_once ('../extras.php');
+	include_once ("../footer.php");
+	include_once ('header.php');
+	include_once ('print.php');
 ?>
 
 <!DOCTYPE html>

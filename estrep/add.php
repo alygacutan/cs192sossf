@@ -48,7 +48,7 @@ Purpose: The HTML/PHP File for Add Establishment Function.
 
 <?php
   //include("../server.php"); **ERROR**
-  include("../extras.php");
+  //include("../extras.php");
 ?>
 
 <!DOCTYPE html>
@@ -200,35 +200,4 @@ Purpose: The HTML/PHP File for Add Establishment Function.
     </form>
   </div>
 </div>
-<script type="text/javascript">
-document.querySelector('#from1').addEventListener('submit', function(e) {
-  var form = this;
-
-  e.preventDefault(); // <--- prevent form from submitting
-
-  swal({
-      title: "Add new establishment?",
-      text: "Are you sure all info inputted are correct?",
-      icon: "warning",
-      buttons: [
-        'No, go back',
-        'Yes, I am sure!'
-      ],
-      dangerMode: true,
-    }).then(function(isConfirm) {
-      if (isConfirm) {
-        swal({
-          title: 'Success!',
-          text: 'The establishment is now shortlisted!',
-          icon: 'success'
-        }).then(function() {
-          form.submit(); // <--- submit form programmatically
-        });
-      } /*else {
-        swal("Cancelled", "Your imaginary file is safe :)", "error");
-      }*/
-    })
-});
-
-
-</script>
+</html>

@@ -42,8 +42,8 @@ Purpose: The HTML/PHP File for Profile Page.
 <?php
   include_once ('../server.php');
   include_once ('../extras.php');
-  include_once ('header.php');
-  include_once ('add.php');
+  include_once ('../header.php');
+  include_once ('../footer.php');
 ?>
 
 <!DOCTYPE html>
@@ -53,40 +53,30 @@ Purpose: The HTML/PHP File for Profile Page.
   </head>
 
   <body>
-    <img id="profilebg" src="../others/profilepage.jpg">
-    <div class="content" style="height: 100%">
-        <div class="profile-container">
+    <div class="content">
+      <div class="profile-container">
+        <div class="profile">
           <?php
-          if (isset($_SESSION['username'])){
-            //echo "<a>Welcome <i class='username'>".$_SESSION['username']."!</i></a>";
+            if (isset($_SESSION['username'])){
+              //echo "<a>Welcome <i class='username'>".$_SESSION['username']."!</i></a>";
 
-            $query = "SELECT * FROM Student WHERE username='".$_SESSION['username']."'";
-            $result = mysqli_query($connection, $query);
-            if(mysqli_num_rows($result)>0) {
-              while($row = mysqli_fetch_assoc($result)) {
-                echo "<h3><center>$row[name]</center></h3><br>";
-                echo "<h4 style='display: inline'>Username: </h4> ".$_SESSION['username']." <br>";
-                echo "<h4 style='display: inline'>E-mail: </h4>$row[email]<br>";              }
-            } else {
-                echo "<p color='red'>No results found.</p>";
-            }
-          }      
-          mysqli_close($connection);
-          ?>
-          
-          
-          <h4><a>change password<a></h4>
-          <span style="position: absolute; bottom: 1.5rem; right:1.5rem">
-            <button class="myBtn" style="display: inline;">delete account</button>
-            <button class="myBtn" style="display: inline;">edit profile</button>
-          </span>
+              $query = "SELECT * FROM Student WHERE username='".$_SESSION['username']."'";
+              $result = mysqli_query($connection, $query);
+              if(mysqli_num_rows($result)>0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                  echo "<h3><center>$row[name]</center></h3><br>";
+                  echo "<h4 style='display: inline'>Username: </h4> ".$_SESSION['username']." <br>";
+                  echo "<h4 style='display: inline'>E-mail: </h4>$row[email]<br>";              }
+              } else {
+                  echo "<p color='red'>No results found.</p>";
+              }
+            }      
+            mysqli_close($connection);
+            ?>
+          </div>
         </div>    
     </div>
-
-  <script
-  type="text/javascript" src="add-establishment.js">
-  </script>
-
-  </html>
+  </body>
+</html>
 
   <?php $connection->close(); ?>

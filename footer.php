@@ -1,7 +1,7 @@
 <!--
 MIT License
 
-Copyright (c) 2019 Kenneth Santos
+Copyright (c) 2019 Aly Gacutan, Kenneth Santos
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -12,7 +12,7 @@ furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-s
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -29,27 +29,27 @@ the AY 2018-2019
 
  <!-- 
 Code History
-v1.0 - Feb 25, 2019 - Initial file - HTML [Kenneth Santos]
-v2.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
+v1.0 - Apr 15, 2019 - Initial file - HTML [Aly Gacutan]
 
-File Creation Date: Feb 25,2019
+File Creation Date: Apr 15,2019
 Development Group: SOSSF Group 
 Client Group: N/A
-Purpose: The PHP File for printing.
+Purpose: The HTML/PHP File for Header.
  -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<footer>
+		
+		<center>
+			<h1><br></h1>
+			<p style="color: white; font-size: 14px;">©️ School and Office Supplies and Services Finder 2019</p>
+		</center>
+		
+	</footer>
+</body>
+</html>
 
-<?php
-
-//for viewall.php, search.php
-function view($record) {
-	echo "<tr>
-			<td><a href='view.php?id={$record["establishmentID"]}'>{$record["name"]}</a></td>
-			<td>{$record["tags"]}</td>
-			<td>{$record["addedBy"]}</td>
-			<td><a href='delete.php?id={$record["establishmentID"]}'>Delete</a></td>
-		  </tr>";
-	//		<td><a href=''>Edit</a>, <a href='delete.php?id={$record["establishmentID"]}'>Delete</a></td>
-	//	  </tr>";
-}
-
-?>

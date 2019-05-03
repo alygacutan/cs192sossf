@@ -44,7 +44,8 @@ Purpose: The HTML/PHP File for Establishment Page.
 <?php
 	include_once ("../server.php");
 	include_once ("../extras.php");
-	include_once ("header.php");
+	include_once ("../header.php");
+	include_once ("../footer.php");
 	include_once ("edit.php");
 ?>
 
@@ -55,7 +56,7 @@ Purpose: The HTML/PHP File for Establishment Page.
 	</head>
 
 	<body>
-		<div class="content" style="height: 100%">
+		<div class="content" style="padding:50px">
 			<?php
 
 				if(isset($_GET["id"])){$id = $_GET["id"];}	
@@ -66,8 +67,7 @@ Purpose: The HTML/PHP File for Establishment Page.
 
 			?>
 
-			<div class="info">
-
+			<div class="info" style="float: left; left: 0rem">
 				<?php
 				echo "<h1 style='font-size: 35px;'>".$result["name"]."</h1>";
 				echo "<p><i style='font-size:15px; color: rgb(188, 227, 244)' class='fas'>&#xf3c5;</i> ".$result["location"]."</p>";
@@ -75,40 +75,18 @@ Purpose: The HTML/PHP File for Establishment Page.
 				echo "<p><i style='font-size:15px; color: rgb(188, 227, 244)' class='fas'>&#xf02c;</i> ".$result["tags"]."</p>";
 				echo "<p><i style='font-size:15px; color: rgb(188, 227, 244)' class='fas'>&#xf017;</i> ".$result["businessHours"]."</p>"
 				?>
-				<div style="display: inline;">
-						<button id="editBtn" class="myBtn" style="margin-right:30px; float: left">Suggest an Edit</button>
-						<!--<button class="myBtn" style="margin-left:30px;float: left">Write a review</button>-->
-					</div>
+				<span style="display: inline-flex;">
+					<button id="editBtn" class="myBtn btn3">Suggest an Edit</button>
+					<button onclick="window.location.href = 'delete.php?id='+<?php echo $id ?>;" class="myBtn btn3">Suggest to Delete</button>
+				</span>
 			</div>
-			<div class="services-container"><h2 style="text-shadow: none; font-weight: normal;"><br>Services:</h2>
+				<div class="services-container"><h2 style="text-shadow: none; font-weight: normal;"><br>Services:</h2>
 				<div class="services">
-						<?php
+					<?php
 						echo "<p>".$result["services"]."</p>"
-						?>
+					?>
 				</div>
-			</div>
-			<!--
-			<div class="reviewrate"><center>
-					<div class="rate">
-					    <input type="radio" id="star5" name="rate" value="5" />
-					    <label for="star5" title="text">5 stars</label>
-					    <input type="radio" id="star4" name="rate" value="4" />
-					    <label for="star4" title="text">4 stars</label>
-					    <input type="radio" id="star3" name="rate" value="3" />
-					    <label for="star3" title="text">3 stars</label>
-					    <input type="radio" id="star2" name="rate" value="2" />
-					    <label for="star2" title="text">2 stars</label>
-					    <input type="radio" id="star1" name="rate" value="1" />
-					    <label for="star1" title="text">1 star</label>
-					</div>
-					
-				<br><br>
-				<div class="map" style="display: flex; justify-content: center;">coming soon...</div><br>
-				<label style="font-family: 'Montserrat', sans-serif; font-weight:normal; text-transform: uppercase; color: #f99a2c; font-size:15px">
-					Reviews and Comments</label><br>
-				<div class="reviews">coming soon...</div>
-			</center></div>-->
-		
+			</div>	
 		</div>
 	</body>
 

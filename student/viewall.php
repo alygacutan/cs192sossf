@@ -46,11 +46,12 @@ Purpose: The HTML/PHP File for View All Page.
  -->
 
 <?php
-	include("../server.php");
-	include("../extras.php");
-	include("header.php");
-	include("add.php");
-	include("print.php")
+	include_once("../server.php");
+	include_once("../extras.php");
+	include_once("../footer.php");
+	include_once("header.php");
+	include_once("add.php");
+	include_once("print.php");
 ?>
 
 <!DOCTYPE html>

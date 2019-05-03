@@ -36,6 +36,7 @@ v3.0 - Feb 10, 2019 - Added tag icons [Aly Gacutan]
 v4.0 - Feb 20, 2019 - Added seach functionality using tags [Kenneth Santos]
 v5.0 - Feb 21, 2019 - Added seach functionality using name and location [Kenneth Santos]
 v6.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
+v6.1 - Feb 25, 2019 - Minor changes [Kenneth Santos]
 
 File Creation Date: Feb 06,2019
 Development Group: SOSSF Group 
@@ -44,9 +45,10 @@ Purpose: The HTML/PHP File for Home Page.
  -->
  
 <?php
-	include("../server.php");
-	include("../extras.php");
-	include("header.php");
+	include_once ("../server.php");
+	include_once ("../extras.php");
+	include_once ("../header.php");
+	include_once ("../footer.php");
 ?>
 
 <!DOCTYPE html>
@@ -55,55 +57,59 @@ Purpose: The HTML/PHP File for Home Page.
 	<title>Home | School and Office Supplies and Services Finder</title>
 </head>
 <body>
-	<div class="homepage">
-		<img id="homepagebg" src="/cs192sossf/bg3.png">
-		<center>
-			<h2 style="font-size: 5vw">Welcome!</h2>
-		<div class="searchbarhomepage">
-			<form action="search.php" method="get">
-				<input type="text" placeholder="Name" name="name" value="">
-				<input type="text" placeholder="Location" name="loc" value="">
-		</div>
-		<button class="btn2" style="color: black; background-color:#fff;"> Search </button><br><br>
-		<div class="tags-icons">
-			<h2 style="color: #000; font-weight: normal;">Search by Type: </h2>
-			<div class="icon-container">
-				<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=internet"><i style="font-size: 32px; color:#FFF" class="fas">&#xf108;
-				</div></i>
-					<a href="search.php?tag=internet" class="link" style="color: #000"><center>INTERNET</center></p></a>
+	<div class="content">
+		<div class="homepage-container">
+			<div class="homepage">
+				<center>
+					<h2 style="font-size: 5vw">Welcome!</h2>
+				<div class="searchbarhomepage">
+					<form action="search.php" method="get">
+						<input type="text" placeholder="Name" name="name" value="">
+						<input type="text" placeholder="Location" name="loc" value="">
+				</div>
+				<button class="btn2" style="color: black; background-color:#fff;"> Search </button><br><br>
+				<div class="tags-icons">
+					<h2 style="color: #000; font-weight: normal;">Search by Type: </h2>
+					<div class="icon-container">
+						<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=internet"><i style="font-size: 32px; color:#FFF" class="fas">&#xf108;
+						</div></i>
+							<a href="search.php?tag=internet" class="link" style="color: #000"><center>INTERNET</center></p></a>
+					</div>
+					<div class="icon-container">
+						<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=school supplies"><i style="font-size:32px; color:#FFF" class="fas">&#xf51c;
+						</div></i>
+							<a href="search.php?tag=school supplies" class="link" style="color: #000"><center>SCHOOL SUPPLIES</center></p></a>
+					</div>
+					<div class="icon-container">
+						<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=drugstore"><i style="font-size:32px; color:#FFF" class="fas">&#xf5b1;
+						</div></i>
+							<a href="search.php?tag=drugstore" class="link" style="color: #000"><center>DRUGSTORE</center></p></a>
+					</div>
+					<div class="icon-container">
+						<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=restaurant"><i style="font-size:32px; color:#FFF" class="fas">&#xf805;
+						</div></i>
+							<a href="search.php?tag=restaurant" class="link" style="color: #000"><center>RESTAURANT</center></p></a>
+					</div>
+					<div class="icon-container">
+						<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=printing"><i style="font-size:32px; color:#FFF" class="fas"> &#xf02f;
+						</div></i>
+							<a href="search.php?tag=printing" class="link" style="color: #000"><center>PRINTING</center></p></a>
+					</div>
+					<div class="icon-container">
+						<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=grocery"><i style="font-size:32px; color:#FFF" class="fas">&#xf07a;
+						</div></i>
+							<a href="search.php?tag=grocery" class="link" style="color: #000"><center>GROCERY</center></p></a>
+					</div>
+					<div class="icon-container">
+						<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=repair"><i style="font-size:32px; color:#FFF" class="fas">&#xf7d9;
+						</div></i>
+							<a href="search.php?tag=repair" class="link" style="color: #000"><center>REPAIR</center></p></a>
+						</div>
+					</div>
+				</center>
 			</div>
-			<div class="icon-container">
-				<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=school supplies"><i style="font-size:32px; color:#FFF" class="fas">&#xf51c;
-				</div></i>
-					<a href="search.php?tag=school supplies" class="link" style="color: #000"><center>SCHOOL SUPPLIES</center></p></a>
-			</div>
-			<div class="icon-container">
-				<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=drugstore"><i style="font-size:32px; color:#FFF" class="fas">&#xf5b1;
-				</div></i>
-					<a href="search.php?tag=drugstore" class="link" style="color: #000"><center>DRUGSTORE</center></p></a>
-			</div>
-			<div class="icon-container">
-				<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=restaurant"><i style="font-size:32px; color:#FFF" class="fas">&#xf805;
-				</div></i>
-					<a href="search.php?tag=restaurant" class="link" style="color: #000"><center>RESTAURANT</center></p></a>
-			</div>
-			<div class="icon-container">
-				<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=printing"><i style="font-size:32px; color:#FFF" class="fas"> &#xf02f;
-				</div></i>
-					<a href="search.php?tag=printing" class="link" style="color: #000"><center>PRINTING</center></p></a>
-			</div>
-			<div class="icon-container">
-				<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=grocery"><i style="font-size:32px; color:#FFF" class="fas">&#xf07a;
-				</div></i>
-					<a href="search.php?tag=grocery" class="link" style="color: #000"><center>GROCERY</center></p></a>
-			</div>
-			<div class="icon-container">
-				<div class="icon-bg" style="background-color: #3BC8AC"><a href="search.php?tag=repair"><i style="font-size:32px; color:#FFF" class="fas">&#xf7d9;
-				</div></i>
-					<a href="search.php?tag=repair" class="link" style="color: #000"><center>REPAIR</center></p></a>
-			</div>
-		</div>
-	</center></div>
+		</a></div>
+	</div>
 </body>
 
 <script type="text/javascript" src="add-establishment.js">
@@ -112,7 +118,7 @@ Purpose: The HTML/PHP File for Home Page.
 </html>
 
 <?php
-
+	
 $connection->close();
 ?>
 

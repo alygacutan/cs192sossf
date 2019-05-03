@@ -32,6 +32,7 @@ Code History
 v1.0 - Feb 07, 2019 - Initial file - HTML [Aly Gacutan]
 v2.0 - Feb 08, 2019 - Added PHP code [Kenneth Santos]
 v3.0 - Feb 25, 2019 - Organized file and folder structure for next sprint update [Kenneth Santos]
+v4.0 - Apr 05, 2019 - Added follow-up request prompt. [Aly Gacutan]
 
 File Creation Date: Feb 07,2019
 Development Group: SOSSF Group 
@@ -87,7 +88,10 @@ Purpose: The HTML/PHP File for Requests Page.
                    $requestStatus = "Approved";
                    break;
               }
-              echo "<tr><td><a href=#>".$row["name"]."</a></td><td>".$row["location"]."</td><td>".$row["tags"]."</td><td>".$requestType."</td><td>".$requestStatus."</td>";
+              echo "<tr><td><a href=#>".$row["name"]."</a></td><td>".$row["location"]."</td><td>".$row["tags"]."</td><td>".$requestType."</td><td>".$requestStatus." ";
+              if ($requestStatus == "Queued"){
+                echo "<button class='myBtn' formtarget='_self' id='from1' onclick='popup()'> Follow-up</button></td>";
+              }
             }
         } else {
             echo "<p color='red'>No results found.</p>";
@@ -98,8 +102,18 @@ Purpose: The HTML/PHP File for Requests Page.
     </div>
   </body>
 
-  <script
-  type="text/javascript" src="add-establishment.js">
+  <script type="text/javascript">
+
+  // When the user clicks the button, open the modal 
+  function popup() {
+    //modal.style.display = "block";
+    swal({
+      title: "Request followed-up!",
+      text: "Please wait until the admin has verified your request",
+      icon: "success",
+    })
+  }
+
   </script>
 
   </html>

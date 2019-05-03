@@ -45,8 +45,10 @@ Purpose: The HTML/PHP File for Establishment Page.
 <?php
 	include_once ("../server.php");
 	include_once ("../extras.php");
-	include_once ("header.php");
+	include_once ("../header.php");
+	include_once ("../footer.php");
 	include_once ("edit.php");
+	//include("prompt.php");
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +58,7 @@ Purpose: The HTML/PHP File for Establishment Page.
 	</head>
 
 	<body>
-		<div class="content" style="height: 100%">
+		<div class="content" style="padding:50px">
 			<?php
 
 				if(isset($_GET["id"])){$_SESSION["id"] = $_GET["id"];}	
@@ -76,40 +78,23 @@ Purpose: The HTML/PHP File for Establishment Page.
 				echo "<p><i style='font-size:15px; color: rgb(188, 227, 244)' class='fas'>&#xf02c;</i> ".$result["tags"]."</p>";
 				echo "<p><i style='font-size:15px; color: rgb(188, 227, 244)' class='fas'>&#xf017;</i> ".$result["businessHours"]."</p>"
 				?>
-				<center>
-						<button id="editBtn" class="myBtn" style="float: right">Edit</button>
-						<button class="myBtn" style="float: left">Write a review</button>
-					</center>
-				<!--<div class="reviewrate" >
-					</div>
-					
-					<div class="rate">
-					    <input type="radio" id="star5" name="rate" value="5" />
-					    <label for="star5" title="text">5 stars</label>
-					    <input type="radio" id="star4" name="rate" value="4" />
-					    <label for="star4" title="text">4 stars</label>
-					    <input type="radio" id="star3" name="rate" value="3" />
-					    <label for="star3" title="text">3 stars</label>
-					    <input type="radio" id="star2" name="rate" value="2" />
-					    <label for="star2" title="text">2 stars</label>
-					    <input type="radio" id="star1" name="rate" value="1" />
-					    <label for="star1" title="text">1 star</label>
-					    <a href style="font-size: 12px; position: absolute; float: left; bottom: -0.3rem">Rate this Establishment!</a>
-				</div>-->
+					<span style="display: inline-flex;">
+						<button id="editBtn" class="myBtn btn3" >Edit</button>
+						<button class="myBtn btn3" >Delete</button>
+					</span>
 			</div>
 			<div class="services-container"><h2 style="text-shadow: none; font-weight: normal;"><br>Services:</h2>
 				<div class="services">
-						<?php
+					<?php
 						echo "<p>".$result["services"]."</p>"
-						?>
+					?>
 				</div>
 			</div>
 		
 		</div>
 	</body>
 
-	<script
-	type="text/javascript" src="edit.js">
+	<script type="text/javascript" src="edit.js">
 	</script>
 	
 	</html>

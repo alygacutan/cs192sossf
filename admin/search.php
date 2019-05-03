@@ -47,7 +47,8 @@ Purpose: The HTML/PHP File for Search Page.
 <?php
 	include('../server.php');
 	include('../extras.php');
-	include('header.php');
+	include('../header.php');
+	include('../footer.php');
 	include('print.php');
 ?>
 
